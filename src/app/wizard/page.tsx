@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import TicketDefenseWizard from "@/components/TicketDefenseWizard";
+import ToolPaywallDossier from "@/components/ToolPaywallDossier";
 import {
   JsonLd,
   webApplicationJsonLd,
@@ -77,6 +78,79 @@ export default function TicketDefenseWizardPage() {
       </div>
 
       <TicketDefenseWizard />
+
+      {/* Free 1-Page Summary vs. Pro Written Defense & Calibration Discovery Kit */}
+      <section className="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 space-y-5 no-print">
+        <div className="space-y-1.5">
+          <span className="inline-block px-2.5 py-0.5 rounded-full bg-[#0f2747]/10 text-[#0f2747] text-[11px] font-bold uppercase tracking-wider">
+            Free Brief vs. Turnkey Defense Filing Kit
+          </span>
+          <h2 className="text-xl sm:text-2xl font-extrabold text-[#0f2747]">
+            Free 1-Page Summary vs. Pro Written Defense &amp; Calibration Discovery Kit
+          </h2>
+          <p className="text-sm text-slate-600 max-w-3xl">
+            Every wizard run generates a free 1-page printable statutory summary. When your 3-year
+            insurance and fine exposure exceeds $1,400–$3,200, upgrading to the $24.99 Pro Kit
+            delivers 56x–128x ROI with ready-to-file Word (.docx) declarations and calibration discovery motions.
+          </p>
+        </div>
+
+        <div className="overflow-x-auto">
+          <table className="w-full text-left border-collapse text-xs sm:text-sm">
+            <thead>
+              <tr className="border-b-2 border-slate-200 bg-slate-50 text-[#0f2747]">
+                <th className="py-3 px-3 font-bold">Deliverable / Defense Asset</th>
+                <th className="py-3 px-3 font-bold">Free 1-Page Summary ($0)</th>
+                <th className="py-3 px-3 font-bold text-[#059669]">
+                  Pro Written Defense &amp; Calibration Discovery Kit ($24.99)
+                </th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-slate-200 text-slate-700">
+              <tr>
+                <td className="py-2.5 px-3 font-semibold">51-Jurisdiction DMV Point &amp; 3-Yr Insurance Audit</td>
+                <td className="py-2.5 px-3">✓ 1-page printable browser brief</td>
+                <td className="py-2.5 px-3 font-semibold text-[#0f2747]">✓ Included + .xlsx 3-Year Insurance ROI Ledger</td>
+              </tr>
+              <tr>
+                <td className="py-2.5 px-3 font-semibold">Trial by Written Declaration (TR-205 / ORS § 153.080)</td>
+                <td className="py-2.5 px-3">Statute reference only</td>
+                <td className="py-2.5 px-3 font-semibold text-[#0f2747]">✓ Editable .docx Written Declaration Templates</td>
+              </tr>
+              <tr>
+                <td className="py-2.5 px-3 font-semibold">Radar / LiDAR / ETS Calibration Discovery Motion</td>
+                <td className="py-2.5 px-3">&mdash; Not included</td>
+                <td className="py-2.5 px-3 font-semibold text-[#0f2747]">✓ Formal .docx Calibration &amp; ETS Discovery Requests</td>
+              </tr>
+              <tr>
+                <td className="py-2.5 px-3 font-semibold">Prosecutor Plea Reduction &amp; PJC / Deferral Scripts</td>
+                <td className="py-2.5 px-3">&mdash; Not included</td>
+                <td className="py-2.5 px-3 font-semibold text-[#0f2747]">✓ Zero-Point Amendment &amp; Mitigation Letters</td>
+              </tr>
+              <tr>
+                <td className="py-2.5 px-3 font-semibold">3-Year Financial Leverage ($24.99 vs. $1,400–$3,200)</td>
+                <td className="py-2.5 px-3">Diagnostic baseline</td>
+                <td className="py-2.5 px-3 font-extrabold text-[#059669]">56x–128x ROI + All-Access Matrix Pass</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <ToolPaywallDossier
+        badge="2026 Written Defense & Discovery Kit"
+        title="Unlock the Complete Written Defense & Calibration Discovery Kit"
+        desc="Download editable .docx Trial by Written Declaration templates (CVC § 40902 / ORS § 153.080), Radar & LiDAR calibration discovery motions, and our .xlsx 3-Year Insurance ROI Ledger."
+        price="$24.99"
+        pid="pdt_0NsmklI8rw00LaBQM8xhq"
+        docType="Written Defense & Calibration Discovery Kit"
+        features={[
+          "Editable .docx Trial by Written Declaration Templates",
+          "Radar, LiDAR & ETS Calibration Discovery Motions",
+          ".xlsx 51-State DMV Point & 3-Yr Insurance ROI Ledger",
+          "All-Access Matrix Pass (Unlocks All 6 Calculators)",
+        ]}
+      />
 
       <section className="bg-white border border-slate-200 rounded-2xl p-6 space-y-4 no-print">
         <h2 className="text-lg font-bold text-[#0f2747]">Frequently Asked Questions</h2>

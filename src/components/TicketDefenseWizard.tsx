@@ -894,6 +894,37 @@ export default function TicketDefenseWizard() {
 
           <HiddenTrapsCallout compact />
 
+          {/* Dynamic ROI Value Anchor Banner */}
+          <div className="rounded-2xl bg-gradient-to-r from-[#0f2747] via-slate-900 to-[#0f2747] border-2 border-[#c8a24a] p-5 sm:p-6 text-white shadow-lg no-print">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+              <div className="space-y-1">
+                <div className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-[#c8a24a]/20 border border-[#c8a24a]/50 text-[#c8a24a] text-[11px] font-extrabold uppercase tracking-wider">
+                  Dynamic 3-Year ROI Value Anchor
+                </div>
+                <h3 className="text-lg sm:text-xl font-extrabold tracking-tight">
+                  Protect ${analysis.totalThreeYearExposure.toLocaleString()} in 3-Year Insurance &amp; Fine Exposure for $24.99
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-300">
+                  Your {selectedState.name} ({selectedState.statuteRef}) exposure is{" "}
+                  <strong className="text-white">${analysis.totalThreeYearExposure.toLocaleString()}</strong>{" "}
+                  (${analysis.estimatedCourtTotal.toLocaleString()} court total + $
+                  {(analysis.threeYearInsuranceHike + analysis.stateSurcharge).toLocaleString()} in 36-month surcharges) vs. the{" "}
+                  <strong className="text-[#c8a24a]">$24.99 Defense Kit</strong>.
+                </p>
+              </div>
+              <div className="shrink-0 flex items-center gap-3 bg-slate-950/80 border border-[#c8a24a]/50 rounded-xl px-4 py-3">
+                <div className="text-right">
+                  <div className="text-[10px] uppercase tracking-wider text-slate-400 font-bold">
+                    Implied ROI Multiple
+                  </div>
+                  <div className="text-2xl sm:text-3xl font-black text-[#c8a24a] tabular-nums">
+                    {Math.max(1, Math.round(analysis.totalThreeYearExposure / 24.99))}x ROI
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
           {/* Matched Dodo Product via ToolPaywallDossier */}
           <ToolPaywallDossier
             badge={`Matched Defense Kit · ${analysis.matchedTier.badge}`}
