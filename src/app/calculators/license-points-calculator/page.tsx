@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: "DMV License Points & State Surcharge Trigger Tracker (2026)",
   description:
     "Track state DMV point accumulation, suspension thresholds, New York 6-point Driver Responsibility Assessment ($300+), New Jersey MVC surcharges, and NC SDIP triggers.",
+  alternates: {
+    canonical: "/calculators/license-points-calculator/",
+  },
 };
 
 const FAQS = [

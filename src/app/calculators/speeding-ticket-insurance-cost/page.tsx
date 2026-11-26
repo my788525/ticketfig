@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: "Speeding Ticket & 3-Year Insurance Cost Calculator (2026)",
   description:
     "Calculate your true speeding ticket cost across all 50 states + DC: base court fine, statutory penalty assessments, DMV points, and 3-year cumulative auto insurance surcharge.",
+  alternates: {
+    canonical: "/calculators/speeding-ticket-insurance-cost/",
+  },
 };
 
 const FAQS = [

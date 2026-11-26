@@ -4,13 +4,13 @@
 
 This is the machine-readable companion to https://ticketfig.com/llms.txt. It lists every
 indexable page on ticketfig.com with its canonical URL.
-## Complete page index (79 pages)
+## Complete page index (81 pages)
 
 ### Home
 - [TicketFig — 2026 US Traffic Ticket, 3-Year Insurance Surcharge & Written Defense Platform](https://ticketfig.com)
 
 ### /about
-- [About TicketFig.com | TicketFig](https://ticketfig.com/about/)
+- [About TicketFig.com — 51-Jurisdiction Traffic Citation Actuarial Platform | TicketFig](https://ticketfig.com/about/)
 
 ### /calculators
 - [Written Declaration & Radar/FOIA Discovery Builder (2026) | TicketFig | TicketFig](https://ticketfig.com/calculators/discovery-calibration-builder/)
@@ -30,7 +30,13 @@ indexable page on ticketfig.com with its canonical URL.
 - [2026 Statutory & Platform Changelog | TicketFig](https://ticketfig.com/changelog/)
 
 ### /contact
-- [Contact & Statutory Corrections | TicketFig](https://ticketfig.com/contact/)
+- [Contact & Statutory Corrections Desk | TicketFig](https://ticketfig.com/contact/)
+
+### /disclaimer
+- [Legal Disclaimer & Actuarial Scope Limitations (2026) | TicketFig](https://ticketfig.com/disclaimer/)
+
+### /editorial-policy
+- [Editorial Policy & Statutory Verification Standards (2026) | TicketFig](https://ticketfig.com/editorial-policy/)
 
 ### /guides
 - [2026 Traffic Ticket Defense & Insurance Actuarial Guides | TicketFig](https://ticketfig.com/guides/)
@@ -48,7 +54,7 @@ indexable page on ticketfig.com with its canonical URL.
 - [Traffic Ticket Pitfalls, Black Holes & 2026 Survival Playbook | TicketFig](https://ticketfig.com/pitfalls/)
 
 ### /privacy
-- [Privacy Policy — 100% Client-Side Execution | TicketFig](https://ticketfig.com/privacy/)
+- [Privacy Policy — Client-Side Execution, AdSense, GDPR & CCPA (2026) | TicketFig](https://ticketfig.com/privacy/)
 
 ### /states
 - [All 51 U.S. State Traffic Ticket, DMV Point & Insurance Surcharge Schedules (2026) | TicketFig](https://ticketfig.com/states/)
@@ -108,7 +114,7 @@ indexable page on ticketfig.com with its canonical URL.
 - [Primary U.S. Traffic Statutes & .gov DMV Authorities (2026) | TicketFig](https://ticketfig.com/statutes/)
 
 ### /terms
-- [Terms of Use & Legal Disclaimer | TicketFig](https://ticketfig.com/terms/)
+- [Terms of Use & Legal Disclaimer (2026) | TicketFig](https://ticketfig.com/terms/)
 
 ### /wizard
 - [4-Step Ticket Defense & 3-Year Insurance Decision Wizard (2026) | TicketFig](https://ticketfig.com/wizard/)

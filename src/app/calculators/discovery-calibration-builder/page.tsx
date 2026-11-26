@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: "Written Declaration & Radar/FOIA Discovery Builder (2026) | TicketFig",
   description:
     "Generate a 5-point Pre-Trial Informal Discovery Checklist and Formal Discovery Request for Stalker DSR 2X Radar, ProLaser 4 LiDAR, MPH Bee III, and Pacing citations.",
+  alternates: {
+    canonical: "/calculators/discovery-calibration-builder/",
+  },
 };
 
 const FAQS = [

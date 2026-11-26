@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: "Trial by Written Declaration & Calibration Discovery Generator (2026)",
   description:
     "Check state Trial by Written Declaration eligibility (Cal. Veh. Code § 40902, ORS § 153.080, WA IRLJ 3.5) and generate Radar/LiDAR calibration discovery requests.",
+  alternates: {
+    canonical: "/calculators/written-declaration-eligibility/",
+  },
 };
 
 const FAQS = [

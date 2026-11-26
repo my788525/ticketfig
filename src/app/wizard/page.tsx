@@ -12,6 +12,9 @@ export const metadata: Metadata = {
   title: "4-Step Ticket Defense & 3-Year Insurance Decision Wizard (2026)",
   description:
     "Guided 4-step traffic ticket defense wizard across all 51 U.S. jurisdictions. Audit your 3-year auto insurance surcharge, print a free statutory brief, and match the right defense kit.",
+  alternates: {
+    canonical: "/wizard/",
+  },
 };
 
 const FAQS = [

@@ -20,6 +20,9 @@ export async function generateMetadata({
   return {
     title: `${st.name} Speeding Ticket Points, Insurance Surcharge & Defense Rules (2026)`,
     description: `${st.name} (${st.abbr}) DMV point schedule (${st.pointSystemName}), ${st.minorHikePct}%–${st.majorHikePct}% insurance surcharge benchmarks, traffic school eligibility, and ${st.writtenDeclarationStatute} defense rules.`,
+    alternates: {
+      canonical: `/states/${st.slug}/`,
+    },
   };
 }
 

@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: "All 51 U.S. State Traffic Ticket, DMV Point & Insurance Surcharge Schedules (2026)",
   description:
     "Compare DMV point systems, 3-year auto insurance surcharge benchmarks, traffic school masking rules, and Written Declaration eligibility across all 50 states + DC.",
+  alternates: {
+    canonical: "/states/",
+  },
 };
 
 export default function StatesIndexPage() {

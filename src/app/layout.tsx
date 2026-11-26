@@ -3,6 +3,7 @@ import Script from 'next/script';
 import { Inter } from 'next/font/google';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import CookieConsent from '@/components/CookieConsent';
 import { JsonLd, organizationJsonLd } from '@/components/JsonLd';
 import './globals.css';
 
@@ -16,6 +17,9 @@ const siteUrl = 'https://ticketfig.com';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
+  alternates: {
+    canonical: './',
+  },
   title: {
     default: 'TicketFig — 2026 US Traffic Ticket, 3-Year Insurance Surcharge & Written Defense Platform',
     template: '%s | TicketFig',
@@ -87,6 +91,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Navigation />
         <main className="flex-1">{children}</main>
         <Footer />
+        <CookieConsent />
         <Script src="https://mail.lianu.com/matrix-analytics.js" strategy="afterInteractive" />
       </body>
     </html>

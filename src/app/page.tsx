@@ -9,6 +9,9 @@ export const metadata: Metadata = {
   title: "TicketFig — 2026 US Traffic Ticket, 3-Year Insurance Surcharge & Written Defense Platform",
   description:
     "Institutional-grade 51-jurisdiction traffic ticket actuarial workbench. Calculate 3-year auto insurance surcharges, Fight vs. Pay ROI, DMV points, and Trial by Written Declaration eligibility.",
+  alternates: {
+    canonical: "/",
+  },
 };
 
 const CALCULATORS = [

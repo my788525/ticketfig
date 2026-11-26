@@ -999,6 +999,10 @@ export default function TicketDefenseWizard() {
                     <button
                       type="button"
                       onClick={() => handleDirectCheckout(tier.pid)}
+                      data-matrix-offer="1"
+                      data-offer-slot="inline"
+                      data-offer-id={tier.pid}
+                      data-offer-action="buy"
                       className={`w-full py-3 px-4 rounded-xl text-xs font-extrabold transition cursor-pointer ${
                         isMatched
                           ? "bg-[#c8a24a] hover:bg-amber-400 text-slate-950"
