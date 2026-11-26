@@ -2,13 +2,17 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0b1d36] text-slate-300 border-t border-slate-800 mt-16 no-print">
+    <footer className="bg-gradient-to-b from-[#0b1120] to-[#18181b] text-zinc-300 border-t border-zinc-800 mt-16 no-print">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 grid grid-cols-1 md:grid-cols-4 gap-8">
         <div className="space-y-3">
-          <div className="flex items-center gap-2">
-            <span className="w-7 h-7 rounded-md bg-slate-900 border border-[#c8a24a]/60 flex items-center justify-center font-serif font-bold text-[#c8a24a] text-sm">
-              T
-            </span>
+          <div className="flex items-center gap-2.5">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" fill="none" className="w-7 h-7 shrink-0" aria-hidden="true">
+              <rect width="36" height="36" rx="8" fill="#0f172a"/>
+              <path d="M18 4L28.5 8.2V17.2C28.5 24.3 24 29.7 18 32C12 29.7 7.5 24.3 7.5 17.2V8.2L18 4Z" fill="#0b1120" stroke="#eab308" strokeWidth="1.5"/>
+              <path d="M11.6 22.2A8.1 8.1 0 1 1 24.4 22.2" stroke="#eab308" strokeWidth="1.8" strokeLinecap="round"/>
+              <line x1="18" y1="19.8" x2="23.4" y2="13.2" stroke="#fbbf24" strokeWidth="1.8" strokeLinecap="round"/>
+              <circle cx="18" cy="19.8" r="2" fill="#eab308"/>
+            </svg>
             <span className="font-extrabold text-white text-base">TicketFig.com</span>
           </div>
           <p className="text-xs text-slate-400 leading-relaxed">

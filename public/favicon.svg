@@ -1,6 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
-  <rect width="64" height="64" rx="14" fill="#0f2747"/>
-  <rect x="4" y="4" width="56" height="56" rx="10" stroke="#c8a24a" stroke-width="2" stroke-opacity="0.7"/>
-  <path d="M20 20h24v6H35v20h-6V26h-9v-6z" fill="#ffffff"/>
-  <circle cx="45" cy="43" r="5" fill="#059669"/>
+  <defs>
+    <linearGradient id="tf-obs" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0b1120"/>
+      <stop offset="100%" stop-color="#18181b"/>
+    </linearGradient>
+    <linearGradient id="tf-amb" x1="12" y1="12" x2="52" y2="52" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#eab308"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="url(#tf-obs)"/>
+  <path d="M32 7L51 14.5V30.5C51 43.2 42.9 52.8 32 57C21.1 52.8 13 43.2 13 30.5V14.5L32 7Z" fill="#0f172a" stroke="url(#tf-amb)" stroke-width="2.2"/>
+  <path d="M20.5 39.5A14.5 14.5 0 1 1 43.5 39.5" stroke="#eab308" stroke-width="2.8" stroke-linecap="round"/>
+  <path d="M23.5 35.5A10 10 0 0 1 40.5 35.5" stroke="#c8a24a" stroke-width="1.4" stroke-opacity="0.45" stroke-dasharray="2.5 3" stroke-linecap="round"/>
+  <line x1="32" y1="35" x2="41.5" y2="23.5" stroke="#fbbf24" stroke-width="2.8" stroke-linecap="round"/>
+  <circle cx="32" cy="35" r="3.2" fill="#eab308"/>
+  <circle cx="32" cy="35" r="1.2" fill="#0b1120"/>
 </svg>
