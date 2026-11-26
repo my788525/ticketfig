@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy: #0f2747;
+  --color-navy-dark: #0b1d36;
+  --color-gold: #c8a24a;
+  --color-emerald-legal: #059669;
+  --font-sans: var(--font-inter), 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #f8fafc;
+  color: #0f172a;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+.print-only {
+  display: none;
+}
+
+@media print {
+  @page {
+    margin: 0.6in;
+    size: letter;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #0f172a !important;
+    font-size: 11pt;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+
+  .print-brief {
+    border: 1px solid #cbd5e1 !important;
+    box-shadow: none !important;
+    background: #ffffff !important;
+    color: #0f172a !important;
+    break-inside: avoid;
+  }
+}

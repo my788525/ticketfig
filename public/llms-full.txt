@@ -1,0 +1,106 @@
+# ticketfig.com — full content index for AI systems (llms-full.txt)
+
+> Institutional-grade 51-jurisdiction traffic ticket actuarial workbench. Calculate 3-year auto insurance surcharges, Fight vs. Pay ROI, DMV points, and Trial by Written Declaration eligibility.
+
+This is the machine-readable companion to https://ticketfig.com/llms.txt. It lists every
+indexable page on ticketfig.com with its canonical URL.
+## Complete page index (75 pages)
+
+### Home
+- [TicketFig — 2026 US Traffic Ticket, 3-Year Insurance Surcharge & Written Defense Platform](https://ticketfig.com)
+
+### /about
+- [About TicketFig.com | TicketFig](https://ticketfig.com/about/)
+
+### /calculators
+- [Fight vs. Pay Speeding Ticket 3-Year ROI Simulator (2026) | TicketFig](https://ticketfig.com/calculators/fight-vs-pay-roi/)
+- [DMV License Points & State Surcharge Trigger Tracker (2026) | TicketFig](https://ticketfig.com/calculators/license-points-calculator/)
+- [Speeding Ticket & 3-Year Insurance Cost Calculator (2026) | TicketFig](https://ticketfig.com/calculators/speeding-ticket-insurance-cost/)
+- [Trial by Written Declaration & Calibration Discovery Generator (2026) | TicketFig](https://ticketfig.com/calculators/written-declaration-eligibility/)
+
+### /cases
+- [Real-Ledger Traffic Ticket Defense Case Studies (2026) | TicketFig](https://ticketfig.com/cases/)
+- [California 78-in-65 Speeding Ticket: CVC § 40902 Written Declaration Dismissal ($1,890 Saved) | TicketFig](https://ticketfig.com/cases/california-78-in-65-cvc-40902-written-declaration/)
+- [New York 77-in-55 (6-Point) Ticket: Avoiding the $300 DRA + $1,950 Insurance Surge | TicketFig](https://ticketfig.com/cases/new-york-6-point-driver-responsibility-assessment/)
+- [North Carolina 69-in-55 Citation: Avoiding the 30%–45% SDIP Insurance Hike via PJC | TicketFig](https://ticketfig.com/cases/north-carolina-sdip-pjc-insurance-hike-avoided/)
+
+### /changelog
+- [2026 Statutory & Platform Changelog | TicketFig](https://ticketfig.com/changelog/)
+
+### /contact
+- [Contact & Statutory Corrections | TicketFig](https://ticketfig.com/contact/)
+
+### /guides
+- [2026 Traffic Ticket Defense & Insurance Actuarial Guides | TicketFig](https://ticketfig.com/guides/)
+- [Auto Insurance Lookback Windows: 36 Months vs. 60–72 Months Explained | TicketFig](https://ticketfig.com/guides/auto-insurance-lookback-windows-3-vs-5-years/)
+- [California Trial by Written Declaration (CVC § 40902) Step-by-Step Guide | TicketFig](https://ticketfig.com/guides/california-trial-by-written-declaration-40902/)
+- [Corporate Fleet & Executive Background Check MVR Impact (2026) | TicketFig](https://ticketfig.com/guides/corporate-fleet-background-check-mvr-impact/)
+- [North Carolina SDIP & PJC Guide: How 1 Point Triggers a 30% Rate Hike | TicketFig](https://ticketfig.com/guides/north-carolina-sdip-and-pjc-guide/)
+- [Radar vs. LiDAR Calibration Discovery: What to Request Before Trial | TicketFig](https://ticketfig.com/guides/radar-vs-lidar-calibration-discovery/)
+- [Traffic School vs. Fighting a Ticket: 2026 3-Year ROI Comparison | TicketFig](https://ticketfig.com/guides/traffic-school-vs-fighting-ticket/)
+
+### /methodology
+- [Actuarial & Statutory Methodology (2026) | TicketFig](https://ticketfig.com/methodology/)
+
+### /privacy
+- [Privacy Policy — 100% Client-Side Execution | TicketFig](https://ticketfig.com/privacy/)
+
+### /states
+- [All 51 U.S. State Traffic Ticket, DMV Point & Insurance Surcharge Schedules (2026) | TicketFig](https://ticketfig.com/states/)
+- [Alabama Speeding Ticket Points, Insurance Surcharge & Defense Rules (2026) | TicketFig](https://ticketfig.com/states/alabama/)
+- [Alaska Speeding Ticket Points, Insurance Surcharge & Defense Rules (2026) | TicketFig](https://ticketfig.com/states/alaska/)
+- [Arizona Speeding Ticket Points, Insurance Surcharge & Defense Rules (2026) | TicketFig](https://ticketfig.com/states/arizona/)
+- [Arkansas Speeding Ticket Points, Insurance Surcharge & Defense Rules (2026) | TicketFig](https://ticketfig.com/states/arkansas/)
+- [California Speeding Ticket Points, Insurance Surcharge & Defense Rules (2026) | TicketFig](https://ticketfig.com/states/california/)
+- [Colorado Speeding Ticket Points, Insurance Surcharge & Defense Rules (2026) | TicketFig](https://ticketfig.com/states/colorado/)
+- [Connecticut Speeding Ticket Points, Insurance Surcharge & Defense Rules (2026) | TicketFig](https://ticketfig.com/states/connecticut/)
+- [Delaware Speeding Ticket Points, Insurance Surcharge & Defense Rules (2026) | TicketFig](https://ticketfig.com/states/delaware/)
+- [District of Columbia Speeding Ticket Points, Insurance Surcharge & Defense Rules (2026) | TicketFig](https://ticketfig.com/states/district-of-columbia/)
+- [Florida Speeding Ticket Points, Insurance Surcharge & Defense Rules (2026) | TicketFig](https://ticketfig.com/states/florida/)
+- [Georgia Speeding Ticket Points, Insurance Surcharge & Defense Rules (2026) | TicketFig](https://ticketfig.com/states/georgia/)
+- [Hawaii Speeding Ticket Points, Insurance Surcharge & Defense Rules (2026) | TicketFig](https://ticketfig.com/states/hawaii/)
+- [Idaho Speeding Ticket Points, Insurance Surcharge & Defense Rules (2026) | TicketFig](https://ticketfig.com/states/idaho/)
+- [Illinois Speeding Ticket Points, Insurance Surcharge & Defense Rules (2026) | TicketFig](https://ticketfig.com/states/illinois/)
+- [Indiana Speeding Ticket Points, Insurance Surcharge & Defense Rules (2026) | TicketFig](https://ticketfig.com/states/indiana/)
+- [Iowa Speeding Ticket Points, Insurance Surcharge & Defense Rules (2026) | TicketFig](https://ticketfig.com/states/iowa/)
+- [Kansas Speeding Ticket Points, Insurance Surcharge & Defense Rules (2026) | TicketFig](https://ticketfig.com/states/kansas/)
+- [Kentucky Speeding Ticket Points, Insurance Surcharge & Defense Rules (2026) | TicketFig](https://ticketfig.com/states/kentucky/)
+- [Louisiana Speeding Ticket Points, Insurance Surcharge & Defense Rules (2026) | TicketFig](https://ticketfig.com/states/louisiana/)
+- [Maine Speeding Ticket Points, Insurance Surcharge & Defense Rules (2026) | TicketFig](https://ticketfig.com/states/maine/)
+- [Maryland Speeding Ticket Points, Insurance Surcharge & Defense Rules (2026) | TicketFig](https://ticketfig.com/states/maryland/)
+- [Massachusetts Speeding Ticket Points, Insurance Surcharge & Defense Rules (2026) | TicketFig](https://ticketfig.com/states/massachusetts/)
+- [Michigan Speeding Ticket Points, Insurance Surcharge & Defense Rules (2026) | TicketFig](https://ticketfig.com/states/michigan/)
+- [Minnesota Speeding Ticket Points, Insurance Surcharge & Defense Rules (2026) | TicketFig](https://ticketfig.com/states/minnesota/)
+- [Mississippi Speeding Ticket Points, Insurance Surcharge & Defense Rules (2026) | TicketFig](https://ticketfig.com/states/mississippi/)
+- [Missouri Speeding Ticket Points, Insurance Surcharge & Defense Rules (2026) | TicketFig](https://ticketfig.com/states/missouri/)
+- [Montana Speeding Ticket Points, Insurance Surcharge & Defense Rules (2026) | TicketFig](https://ticketfig.com/states/montana/)
+- [Nebraska Speeding Ticket Points, Insurance Surcharge & Defense Rules (2026) | TicketFig](https://ticketfig.com/states/nebraska/)
+- [Nevada Speeding Ticket Points, Insurance Surcharge & Defense Rules (2026) | TicketFig](https://ticketfig.com/states/nevada/)
+- [New Hampshire Speeding Ticket Points, Insurance Surcharge & Defense Rules (2026) | TicketFig](https://ticketfig.com/states/new-hampshire/)
+- [New Jersey Speeding Ticket Points, Insurance Surcharge & Defense Rules (2026) | TicketFig](https://ticketfig.com/states/new-jersey/)
+- [New Mexico Speeding Ticket Points, Insurance Surcharge & Defense Rules (2026) | TicketFig](https://ticketfig.com/states/new-mexico/)
+- [New York Speeding Ticket Points, Insurance Surcharge & Defense Rules (2026) | TicketFig](https://ticketfig.com/states/new-york/)
+- [North Carolina Speeding Ticket Points, Insurance Surcharge & Defense Rules (2026) | TicketFig](https://ticketfig.com/states/north-carolina/)
+- [North Dakota Speeding Ticket Points, Insurance Surcharge & Defense Rules (2026) | TicketFig](https://ticketfig.com/states/north-dakota/)
+- [Ohio Speeding Ticket Points, Insurance Surcharge & Defense Rules (2026) | TicketFig](https://ticketfig.com/states/ohio/)
+- [Oklahoma Speeding Ticket Points, Insurance Surcharge & Defense Rules (2026) | TicketFig](https://ticketfig.com/states/oklahoma/)
+- [Oregon Speeding Ticket Points, Insurance Surcharge & Defense Rules (2026) | TicketFig](https://ticketfig.com/states/oregon/)
+- [Pennsylvania Speeding Ticket Points, Insurance Surcharge & Defense Rules (2026) | TicketFig](https://ticketfig.com/states/pennsylvania/)
+- [Rhode Island Speeding Ticket Points, Insurance Surcharge & Defense Rules (2026) | TicketFig](https://ticketfig.com/states/rhode-island/)
+- [South Carolina Speeding Ticket Points, Insurance Surcharge & Defense Rules (2026) | TicketFig](https://ticketfig.com/states/south-carolina/)
+- [South Dakota Speeding Ticket Points, Insurance Surcharge & Defense Rules (2026) | TicketFig](https://ticketfig.com/states/south-dakota/)
+- [Tennessee Speeding Ticket Points, Insurance Surcharge & Defense Rules (2026) | TicketFig](https://ticketfig.com/states/tennessee/)
+- [Texas Speeding Ticket Points, Insurance Surcharge & Defense Rules (2026) | TicketFig](https://ticketfig.com/states/texas/)
+- [Utah Speeding Ticket Points, Insurance Surcharge & Defense Rules (2026) | TicketFig](https://ticketfig.com/states/utah/)
+- [Vermont Speeding Ticket Points, Insurance Surcharge & Defense Rules (2026) | TicketFig](https://ticketfig.com/states/vermont/)
+- [Virginia Speeding Ticket Points, Insurance Surcharge & Defense Rules (2026) | TicketFig](https://ticketfig.com/states/virginia/)
+- [Washington Speeding Ticket Points, Insurance Surcharge & Defense Rules (2026) | TicketFig](https://ticketfig.com/states/washington/)
+- [West Virginia Speeding Ticket Points, Insurance Surcharge & Defense Rules (2026) | TicketFig](https://ticketfig.com/states/west-virginia/)
+- [Wisconsin Speeding Ticket Points, Insurance Surcharge & Defense Rules (2026) | TicketFig](https://ticketfig.com/states/wisconsin/)
+- [Wyoming Speeding Ticket Points, Insurance Surcharge & Defense Rules (2026) | TicketFig](https://ticketfig.com/states/wyoming/)
+
+### /statutes
+- [Primary U.S. Traffic Statutes & .gov DMV Authorities (2026) | TicketFig](https://ticketfig.com/statutes/)
+
+### /terms
+- [Terms of Use & Legal Disclaimer | TicketFig](https://ticketfig.com/terms/)

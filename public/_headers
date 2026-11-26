@@ -1,0 +1,21 @@
+/*
+  X-Frame-Options: SAMEORIGIN
+  Content-Security-Policy: frame-ancestors 'self'
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+  Link: </llms.txt>; rel="alternate"; type="text/markdown"; title="LLM RAG Stream"
+
+/
+  Link: <https://ticketfig.com/>; rel="canonical"
+
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/llms.txt
+  Content-Type: text/markdown; charset=utf-8
+  Access-Control-Allow-Origin: *
+
+/llms-full.txt
+  Content-Type: text/markdown; charset=utf-8
+  Access-Control-Allow-Origin: *

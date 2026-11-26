@@ -1,0 +1,30 @@
+# TicketFig.com Robots Specification
+# Domain: ticketfig.com
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: *
+Allow: /
+Disallow: /api/
+
+Host: https://ticketfig.com
+Sitemap: https://ticketfig.com/sitemap.xml
