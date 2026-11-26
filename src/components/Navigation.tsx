@@ -15,6 +15,7 @@ const CALCULATOR_LINKS = [
 ];
 
 const REFERENCE_LINKS = [
+  { href: "/pitfalls/", label: "Pitfalls & Traps" },
   { href: "/states/", label: "51 States" },
   { href: "/cases/", label: "Cases" },
   { href: "/guides/", label: "Guides" },

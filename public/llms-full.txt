@@ -4,7 +4,7 @@
 
 This is the machine-readable companion to https://ticketfig.com/llms.txt. It lists every
 indexable page on ticketfig.com with its canonical URL.
-## Complete page index (78 pages)
+## Complete page index (79 pages)
 
 ### Home
 - [TicketFig — 2026 US Traffic Ticket, 3-Year Insurance Surcharge & Written Defense Platform](https://ticketfig.com)
@@ -43,6 +43,9 @@ indexable page on ticketfig.com with its canonical URL.
 
 ### /methodology
 - [Actuarial & Statutory Methodology (2026) | TicketFig](https://ticketfig.com/methodology/)
+
+### /pitfalls
+- [Traffic Ticket Pitfalls, Black Holes & 2026 Survival Playbook | TicketFig](https://ticketfig.com/pitfalls/)
 
 ### /privacy
 - [Privacy Policy — 100% Client-Side Execution | TicketFig](https://ticketfig.com/privacy/)

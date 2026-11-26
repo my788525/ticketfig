@@ -52,6 +52,11 @@ export default function Footer() {
           </h4>
           <ul className="space-y-2 text-xs">
             <li>
+              <Link href="/pitfalls/" className="hover:text-[#c8a24a]">
+                Pitfalls &amp; Traps Survival Playbook
+              </Link>
+            </li>
+            <li>
               <Link href="/states/" className="hover:text-[#c8a24a]">
                 All 51 State DMV Point Schedules
               </Link>

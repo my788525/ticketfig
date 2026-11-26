@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { TICKET_STATUTES_2026 } from "@/data/ticket_statutes_2026";
 import { CASE_STUDIES_2026, GUIDES_2026 } from "@/data/cases_and_guides_2026";
 import ToolPaywallDossier from "@/components/ToolPaywallDossier";
+import HiddenTrapsCallout from "@/components/HiddenTrapsCallout";
 
 export const metadata: Metadata = {
   title: "TicketFig — 2026 US Traffic Ticket, 3-Year Insurance Surcharge & Written Defense Platform",
@@ -176,8 +177,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Inline Offer @ ~35-40% Scroll Depth */}
-      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+      {/* Contextual 3-Trap Survival Check + Inline Offer @ ~35-40% Scroll Depth */}
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 space-y-8">
+        <HiddenTrapsCallout />
         <ToolPaywallDossier
           badge="2026 Written Defense & Discovery Kit"
           title="Unlock the Complete 51-State Traffic Defense & Discovery Suite"

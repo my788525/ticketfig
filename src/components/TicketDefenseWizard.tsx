@@ -4,6 +4,7 @@ import React, { useMemo, useState } from "react";
 import Link from "next/link";
 import { TICKET_STATUTES_2026, StateTicketStatute } from "@/data/ticket_statutes_2026";
 import ToolPaywallDossier from "@/components/ToolPaywallDossier";
+import HiddenTrapsCallout from "@/components/HiddenTrapsCallout";
 import IcsDeadlineButton from "@/components/IcsDeadlineButton";
 
 type ViolationCategory =
@@ -890,6 +891,8 @@ export default function TicketDefenseWizard() {
               </div>
             </div>
           </div>
+
+          <HiddenTrapsCallout compact />
 
           {/* Matched Dodo Product via ToolPaywallDossier */}
           <ToolPaywallDossier

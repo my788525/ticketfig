@@ -34,6 +34,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   const flagshipToolRoutes: MetadataRoute.Sitemap = [
+    '/pitfalls/',
     '/calculators/ticket-error-forensics/',
     '/calculators/discovery-calibration-builder/',
   ].map((r) => ({
