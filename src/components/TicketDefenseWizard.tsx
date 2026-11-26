@@ -6,6 +6,7 @@ import { TICKET_STATUTES_2026, StateTicketStatute } from "@/data/ticket_statutes
 import ToolPaywallDossier from "@/components/ToolPaywallDossier";
 import HiddenTrapsCallout from "@/components/HiddenTrapsCallout";
 import IcsDeadlineButton from "@/components/IcsDeadlineButton";
+import WizardLeadEscalation from "@/components/WizardLeadEscalation";
 
 type ViolationCategory =
   | "speeding_1_14"
@@ -924,6 +925,14 @@ export default function TicketDefenseWizard() {
               </div>
             </div>
           </div>
+
+          <WizardLeadEscalation
+            stateAbbr={selectedState.abbr}
+            stateName={selectedState.name}
+            exposureAmount={analysis.totalThreeYearExposure}
+            summaryText={`${selectedState.name} (${selectedState.statuteRef}) | 3-Yr Exposure: $${analysis.totalThreeYearExposure.toLocaleString()} | +${analysis.pointsAdded} pts | ${analysis.branchReason}`}
+            statuteCitation={selectedState.statuteRef}
+          />
 
           {/* Matched Dodo Product via ToolPaywallDossier */}
           <ToolPaywallDossier

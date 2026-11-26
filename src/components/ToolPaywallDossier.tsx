@@ -30,6 +30,7 @@ export default function ToolPaywallDossier({
   sampleLines,
 }: ToolPaywallDossierProps) {
   const [showQr, setShowQr] = useState(false);
+  const [previewTab, setPreviewTab] = useState<"docx" | "xlsx">("docx");
   const [paymentSuccess, setPaymentSuccess] = useState(false);
   const [hasActivePass, setHasActivePass] = useState(false);
   const [showPassModal, setShowPassModal] = useState(false);
@@ -216,6 +217,49 @@ export default function ToolPaywallDossier({
               <div className="flex justify-between"><span>├── 02_Radar_LiDAR_Discovery_Motion.docx</span><span className="text-[#c8a24a]">Word</span></div>
               <div className="flex justify-between"><span>├── 03_3Yr_Insurance_ROI_Ledger.xlsx</span><span className="text-emerald-400">Excel</span></div>
               <div className="flex justify-between"><span>└── 04_51_State_Statutes_Compendium.pdf</span><span className="text-slate-300">PDF</span></div>
+            </div>
+
+            <div className="pt-3 mt-3 border-t border-slate-800 space-y-2">
+              <div className="flex items-center justify-between gap-1 text-[10px] font-mono">
+                <span className="text-[#c8a24a] font-bold">LIVE KIT PREVIEW</span>
+                <div className="flex gap-1">
+                  <button
+                    type="button"
+                    onClick={() => setPreviewTab("docx")}
+                    className={`px-2 py-0.5 rounded cursor-pointer ${previewTab === "docx" ? "bg-[#c8a24a] text-slate-950 font-bold" : "bg-slate-800 text-slate-300"}`}
+                  >
+                    .DOCX
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setPreviewTab("xlsx")}
+                    className={`px-2 py-0.5 rounded cursor-pointer ${previewTab === "xlsx" ? "bg-emerald-600 text-white font-bold" : "bg-slate-800 text-slate-300"}`}
+                  >
+                    .XLSX
+                  </button>
+                </div>
+              </div>
+              {previewTab === "docx" ? (
+                <div className="bg-white/95 text-slate-900 rounded-lg p-2.5 text-[10px] leading-snug space-y-1 font-serif">
+                  <div className="font-bold text-[#0b1120] uppercase tracking-wider text-[9px] font-mono">
+                    TRIAL BY WRITTEN DECLARATION · DISCOVERY
+                  </div>
+                  <div className="font-bold">Re: Request for Calibration &amp; Officer Logs</div>
+                  <div className="h-1.5 w-4/5 bg-slate-200 rounded" />
+                  <div className="text-[9px] text-slate-600">
+                    Defendant requests tuning-fork / LiDAR certification &amp; engineering speed survey...
+                  </div>
+                  <div className="h-1.5 w-3/5 bg-slate-200 rounded" />
+                </div>
+              ) : (
+                <div className="bg-slate-950 border border-slate-700 rounded-lg p-2 text-[9px] font-mono text-slate-300 space-y-1">
+                  <div className="grid grid-cols-3 text-amber-400 font-bold border-b border-slate-800 pb-0.5">
+                    <span>Option</span><span>3-Yr Cost</span><span>Points</span>
+                  </div>
+                  <div className="grid grid-cols-3"><span>Pay Ticket</span><span className="text-rose-400">$2,140</span><span>+2 pts</span></div>
+                  <div className="grid grid-cols-3"><span>Contest</span><span className="text-emerald-400">$24.99</span><span>0 pts</span></div>
+                </div>
+              )}
             </div>
           </div>
         </div>
