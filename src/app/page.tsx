@@ -141,6 +141,21 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Inline Offer @ ~35-40% Scroll Depth */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <ToolPaywallDossier
+          badge="2026 Written Defense & Discovery Kit"
+          title="Unlock the Complete 51-State Traffic Defense & Discovery Suite"
+          desc="Download editable .docx Written Declarations (TR-205 / ORS § 153.080), Radar & LiDAR Calibration Discovery Requests, and our .xlsx 3-Year ROI Ledger."
+          features={[
+            "Editable .docx Written Declaration Templates",
+            "Radar & LiDAR Calibration Discovery Requests",
+            ".xlsx 51-State DMV Point & 3-Yr ROI Ledger",
+            "All-Access Matrix Pass (Unlocks All Tools)",
+          ]}
+        />
+      </div>
+
       {/* Featured State Dossiers */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
         <div className="flex flex-wrap items-end justify-between gap-4">
@@ -244,20 +259,6 @@ export default function HomePage() {
           ))}
         </div>
       </section>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <ToolPaywallDossier
-          badge="2026 Written Defense & Discovery Kit"
-          title="Unlock the Complete 51-State Traffic Defense & Discovery Suite"
-          desc="Download editable Word templates for Written Declarations (TR-205 / ORS § 153.080), Radar & LiDAR Calibration Discovery Motions, and our 51-State Insurance Surcharge Matrix."
-          features={[
-            "Editable Written Declaration Word Templates",
-            "Radar & LiDAR Calibration Discovery Motions",
-            "51-State DMV Point & SDIP Matrix (Excel)",
-            "All-Access Matrix Pass (Unlocks All Tools)",
-          ]}
-        />
-      </div>
     </div>
   );
 }

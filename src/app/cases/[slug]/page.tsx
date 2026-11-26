@@ -88,6 +88,20 @@ export default async function CaseDetailPage({
         </div>
       </div>
 
+      {/* Inline Offer @ ~35-40% Scroll Depth */}
+      <ToolPaywallDossier
+        badge="2026 Written Defense & Discovery Kit"
+        title={`Replicate This ${cs.stateName} Defense Workflow`}
+        desc="Download editable .docx templates, Radar/LiDAR discovery motions, and the .xlsx 3-Year ROI Ledger."
+        dynamicAmount={cs.netSavings}
+        features={[
+          "Editable .docx Written Declaration & Plea Templates",
+          "Radar & LiDAR Calibration Discovery Request",
+          ".xlsx 3-Year Insurance Surcharge Ledger",
+          "51-State Statutory Reference Manual",
+        ]}
+      />
+
       <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-xs space-y-4">
         <h2 className="text-lg font-bold text-[#0f2747]">Execution Timeline</h2>
         <div className="space-y-3">
@@ -102,19 +116,6 @@ export default async function CaseDetailPage({
           <strong>Key Takeaway:</strong> {cs.keyTakeaway}
         </div>
       </div>
-
-      <ToolPaywallDossier
-        badge="2026 Written Defense & Discovery Kit"
-        title={`Replicate This ${cs.stateName} Defense Workflow`}
-        desc="Download editable Word templates, discovery motions, and the 51-state insurance surcharge workbook."
-        dynamicAmount={cs.netSavings}
-        features={[
-          "Editable Written Declaration & Plea Templates",
-          "Radar & LiDAR Calibration Discovery Motion",
-          "3-Year Insurance Surcharge Ledger (Excel)",
-          "51-State Statutory Reference Manual",
-        ]}
-      />
     </div>
   );
 }

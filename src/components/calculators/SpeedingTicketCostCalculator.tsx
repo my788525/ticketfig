@@ -32,12 +32,24 @@ const PRESETS = [
   },
 ];
 
+const POLICY_PROFILES = [
+  { id: "standard", label: "Standard Adult (1.0x)", factor: 1.0 },
+  { id: "multipolicy", label: "Multi-Policy Bundle (0.85x)", factor: 0.85 },
+  { id: "teen", label: "Teen / Young Driver (1.45x)", factor: 1.45 },
+] as const;
+
 export default function SpeedingTicketCostCalculator() {
+  const [mode, setMode] = useState<"quick" | "pro">("quick");
   const [stateAbbr, setStateAbbr] = useState("CA");
   const [mphOver, setMphOver] = useState(13);
   const [annualPremium, setAnnualPremium] = useState(2600);
   const [baseFineOverride, setBaseFineOverride] = useState<number | null>(null);
   const [priorTickets, setPriorTickets] = useState(0);
+  const [policyProfile, setPolicyProfile] = useState<"standard" | "multipolicy" | "teen">("standard");
+  const [trafficSchoolFee, setTrafficSchoolFee] = useState(65);
+  const [timeCostUsd, setTimeCostUsd] = useState(120);
+  const [dismissalProb, setDismissalProb] = useState(45);
+  const [copiedSummary, setCopiedSummary] = useState(false);
 
   const st = TICKET_STATUTE_BY_ABBR[stateAbbr] || TICKET_STATUTE_BY_ABBR["CA"];
   const isMajor = mphOver >= 15;
@@ -47,9 +59,16 @@ export default function SpeedingTicketCostCalculator() {
   const calc = useMemo(() => {
     const courtTotal = Math.round(baseFine * st.assessmentMultiplier);
     const hikePct = isMajor ? st.majorHikePct : st.minorHikePct;
-    const priorMultiplier = priorTickets > 0 ? 1 + priorTickets * 0.25 : 1;
-    const effectiveHikePct = Math.round(hikePct * priorMultiplier);
-    const annualInsuranceHike = Math.round((annualPremium * effectiveHikePct) / 100);
+    const effectivePriorTickets = mode === "quick" ? 0 : priorTickets;
+    const profileFactor =
+      mode === "quick"
+        ? 1.0
+        : POLICY_PROFILES.find((p) => p.id === policyProfile)?.factor ?? 1.0;
+    const effectivePremium = mode === "quick" ? 2400 : annualPremium;
+
+    const priorMultiplier = effectivePriorTickets > 0 ? 1 + effectivePriorTickets * 0.25 : 1;
+    const effectiveHikePct = Math.round(hikePct * priorMultiplier * profileFactor);
+    const annualInsuranceHike = Math.round((effectivePremium * effectiveHikePct) / 100);
     const years = Math.round(st.lookbackMonths / 12);
     const insurance3Yr = annualInsuranceHike * years;
     const stateSurcharge =
@@ -58,6 +77,14 @@ export default function SpeedingTicketCostCalculator() {
         : 0;
     const totalExposure = courtTotal + insurance3Yr + stateSurcharge;
     const pointsAdded = isMajor ? st.majorPoints : st.minorPoints;
+
+    const schoolTotal = st.trafficSchoolEligible ? courtTotal + trafficSchoolFee + timeCostUsd : null;
+    const pWin = dismissalProb / 100;
+    const writtenDeclEv = Math.round((1 - pWin) * (schoolTotal ?? totalExposure));
+    const projectedSavings = Math.max(
+      totalExposure - writtenDeclEv,
+      schoolTotal !== null ? totalExposure - schoolTotal : 0
+    );
 
     return {
       courtTotal,
@@ -68,8 +95,23 @@ export default function SpeedingTicketCostCalculator() {
       stateSurcharge,
       totalExposure,
       pointsAdded,
+      effectivePremium,
+      schoolTotal,
+      writtenDeclEv,
+      projectedSavings,
     };
-  }, [baseFine, st, isMajor, priorTickets, annualPremium]);
+  }, [
+    baseFine,
+    st,
+    isMajor,
+    mode,
+    priorTickets,
+    policyProfile,
+    annualPremium,
+    trafficSchoolFee,
+    timeCostUsd,
+    dismissalProb,
+  ]);
 
   const applyPreset = (p: (typeof PRESETS)[number]) => {
     setStateAbbr(p.state);
@@ -77,6 +119,27 @@ export default function SpeedingTicketCostCalculator() {
     setAnnualPremium(p.annualPremium);
     setBaseFineOverride(p.baseFine);
     setPriorTickets(p.priorTickets);
+  };
+
+  const statutorySummaryText = `3-YEAR FINANCIAL EXPOSURE BRIEF — ${st.name.toUpperCase()} (${st.abbr})
+Statute: ${st.statuteRef} · Authority: ${st.authorityName}
+Citation: +${mphOver} mph over limit (${isMajor ? "Major 15+" : "Minor 1–14"})
+DMV Points: ${st.hasPoints ? `${calc.pointsAdded} pts (${st.pointSystemName})` : `0 numeric pts (${st.pointSystemName})`}
+Court Fine + Assessments: $${calc.courtTotal.toLocaleString()} ($${baseFine} base × ${st.assessmentMultiplier}x)
+${calc.years}-Yr Insurance Surcharge: +$${calc.insurance3Yr.toLocaleString()} (+${calc.effectiveHikePct}%/yr on $${calc.effectivePremium.toLocaleString()}/yr)
+State DMV / Super Speeder Surcharge: $${calc.stateSurcharge.toLocaleString()} (${st.stateSurchargeRule})
+TOTAL ${calc.years}-YEAR EXPOSURE IF PAID: $${calc.totalExposure.toLocaleString()}
+Traffic School: ${st.trafficSchoolEligible ? `Eligible — ${st.trafficSchoolRule}` : `Not Statutory — ${st.trafficSchoolRule}`}
+Written Declaration: ${st.writtenDeclarationAvailable ? `Available (${st.writtenDeclarationStatute})` : `Appearance / Counsel (${st.writtenDeclarationStatute})`}`;
+
+  const handleCopySummary = async () => {
+    try {
+      await navigator.clipboard.writeText(statutorySummaryText);
+      setCopiedSummary(true);
+      setTimeout(() => setCopiedSummary(false), 2500);
+    } catch {
+      // Fallback
+    }
   };
 
   const discoveryText = `INFORMAL DISCOVERY & CALIBRATION REQUEST
@@ -93,34 +156,80 @@ Submitted without waiver of right to contest or elect ${st.trafficSchoolEligible
 
   return (
     <div className="space-y-8">
-      {/* Presets */}
-      <div className="flex flex-wrap items-center gap-2 no-print">
-        <span className="text-xs font-bold uppercase tracking-wider text-slate-500 mr-1">
-          Executive Presets:
-        </span>
-        {PRESETS.map((p) => (
+      {/* Mode Toggle + Presets */}
+      <div className="flex flex-wrap items-center justify-between gap-4 no-print">
+        <div
+          className="inline-flex rounded-xl bg-slate-200/80 p-1 border border-slate-300"
+          role="tablist"
+          aria-label="Calculator Mode"
+        >
           <button
-            key={p.label}
             type="button"
-            onClick={() => applyPreset(p)}
-            className="px-3 py-1.5 rounded-lg bg-white border border-slate-300 hover:border-[#0f2747] text-xs font-semibold text-[#0f2747] transition cursor-pointer shadow-xs"
+            role="tab"
+            aria-selected={mode === "quick"}
+            onClick={() => setMode("quick")}
+            className={`px-4 py-2 rounded-lg text-xs font-extrabold transition cursor-pointer ${
+              mode === "quick"
+                ? "bg-[#0f2747] text-white shadow-sm"
+                : "text-slate-700 hover:text-[#0f2747]"
+            }`}
           >
-            {p.label}
+            Quick Check (30s)
           </button>
-        ))}
+          <button
+            type="button"
+            role="tab"
+            aria-selected={mode === "pro"}
+            onClick={() => setMode("pro")}
+            className={`px-4 py-2 rounded-lg text-xs font-extrabold transition cursor-pointer ${
+              mode === "pro"
+                ? "bg-[#0f2747] text-white shadow-sm"
+                : "text-slate-700 hover:text-[#0f2747]"
+            }`}
+          >
+            Forensic Pro Audit
+          </button>
+        </div>
+
+        <div className="flex flex-wrap items-center gap-2">
+          <span className="text-xs font-bold uppercase tracking-wider text-slate-500 mr-1">
+            Executive Presets:
+          </span>
+          {PRESETS.map((p) => (
+            <button
+              key={p.label}
+              type="button"
+              onClick={() => applyPreset(p)}
+              className="px-3 py-1.5 rounded-lg bg-white border border-slate-300 hover:border-[#0f2747] text-xs font-semibold text-[#0f2747] transition cursor-pointer shadow-xs"
+            >
+              {p.label}
+            </button>
+          ))}
+        </div>
       </div>
 
       {/* 2-Column Precision Workbench */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
         {/* Left: Inputs */}
         <div className="lg:col-span-5 bg-white border border-slate-200 rounded-2xl p-6 shadow-sm space-y-5 no-print">
-          <div className="border-b border-slate-100 pb-3">
-            <h2 className="text-base font-bold text-[#0f2747]">Citation &amp; Policy Parameters</h2>
-            <p className="text-xs text-slate-500">All 51 U.S. jurisdictions · 2026 statutory schedules</p>
+          <div className="border-b border-slate-100 pb-3 flex items-center justify-between">
+            <div>
+              <h2 className="text-base font-bold text-[#0f2747]">
+                {mode === "quick" ? "Quick 3-Input Exposure Check" : "Forensic Pro Audit Parameters"}
+              </h2>
+              <p className="text-xs text-slate-500">
+                {mode === "quick"
+                  ? "State, Base Fine & Speed Over Limit · $2,400/yr baseline"
+                  : "Multi-factor policy, prior points & defense ROI modeling"}
+              </p>
+            </div>
+            <span className="px-2 py-0.5 rounded-md bg-slate-100 text-[10px] font-bold uppercase text-[#0f2747]">
+              {mode === "quick" ? "30s Quick" : "Pro Audit"}
+            </span>
           </div>
 
           <div className="space-y-1.5">
-            <label className="block text-xs font-bold text-slate-700">Jurisdiction (State / DC)</label>
+            <label className="block text-xs font-bold text-slate-700">1. Jurisdiction (State / DC)</label>
             <select
               value={stateAbbr}
               onChange={(e) => {
@@ -138,8 +247,20 @@ Submitted without waiver of right to contest or elect ${st.trafficSchoolEligible
           </div>
 
           <div className="space-y-1.5">
+            <label className="block text-xs font-bold text-slate-700">2. Base Fine ($)</label>
+            <input
+              type="number"
+              min={10}
+              max={2500}
+              value={baseFine}
+              onChange={(e) => setBaseFineOverride(Math.max(0, Number(e.target.value) || 0))}
+              className="w-full rounded-xl border border-slate-300 bg-slate-50 px-3 py-2.5 text-sm font-semibold tabular-nums text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#0f2747]"
+            />
+          </div>
+
+          <div className="space-y-1.5">
             <div className="flex justify-between text-xs font-bold text-slate-700">
-              <span>Speed Over Limit</span>
+              <span>3. Speed Over Limit / Ticket Type</span>
               <span className="tabular-nums text-[#0f2747]">
                 +{mphOver} mph ({isMajor ? "Major 15+" : "Minor 1–14"})
               </span>
@@ -155,51 +276,104 @@ Submitted without waiver of right to contest or elect ${st.trafficSchoolEligible
               }}
               className="w-full accent-[#0f2747]"
             />
-          </div>
-
-          <div className="space-y-1.5">
-            <label className="block text-xs font-bold text-slate-700">
-              Current Annual Auto Insurance Premium ($)
-            </label>
-            <input
-              type="number"
-              min={400}
-              max={15000}
-              step={100}
-              value={annualPremium}
-              onChange={(e) => setAnnualPremium(Math.max(400, Number(e.target.value) || 0))}
-              className="w-full rounded-xl border border-slate-300 bg-slate-50 px-3 py-2.5 text-sm font-semibold tabular-nums text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#0f2747]"
-            />
-          </div>
-
-          <div className="grid grid-cols-2 gap-3">
-            <div className="space-y-1.5">
-              <label className="block text-xs font-bold text-slate-700">Base Fine ($)</label>
-              <input
-                type="number"
-                min={10}
-                max={2500}
-                value={baseFine}
-                onChange={(e) => setBaseFineOverride(Math.max(0, Number(e.target.value) || 0))}
-                className="w-full rounded-xl border border-slate-300 bg-slate-50 px-3 py-2 text-sm font-semibold tabular-nums text-slate-900"
-              />
-            </div>
-            <div className="space-y-1.5">
-              <label className="block text-xs font-bold text-slate-700">Prior Tickets (3 Yr)</label>
-              <select
-                value={priorTickets}
-                onChange={(e) => setPriorTickets(Number(e.target.value))}
-                className="w-full rounded-xl border border-slate-300 bg-slate-50 px-3 py-2 text-sm font-semibold text-slate-900"
-              >
-                <option value={0}>0 (Clean Record)</option>
-                <option value={1}>1 Prior Violation</option>
-                <option value={2}>2+ Prior Violations</option>
-              </select>
+            <div className="flex justify-between text-[11px] text-slate-500">
+              <span>Minor (1–14 mph)</span>
+              <span>Major (15+ mph)</span>
             </div>
           </div>
+
+          {mode === "pro" && (
+            <div className="space-y-4 pt-2 border-t border-slate-100">
+              <div className="space-y-1.5">
+                <label className="block text-xs font-bold text-slate-700">
+                  Baseline Annual Auto Insurance Premium ($)
+                </label>
+                <input
+                  type="number"
+                  min={400}
+                  max={15000}
+                  step={100}
+                  value={annualPremium}
+                  onChange={(e) => setAnnualPremium(Math.max(400, Number(e.target.value) || 0))}
+                  className="w-full rounded-xl border border-slate-300 bg-slate-50 px-3 py-2.5 text-sm font-semibold tabular-nums text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#0f2747]"
+                />
+              </div>
+
+              <div className="grid grid-cols-2 gap-3">
+                <div className="space-y-1.5">
+                  <label className="block text-xs font-bold text-slate-700">Policy / Driver Factor</label>
+                  <select
+                    value={policyProfile}
+                    onChange={(e) => setPolicyProfile(e.target.value as typeof policyProfile)}
+                    className="w-full rounded-xl border border-slate-300 bg-slate-50 px-3 py-2 text-xs font-semibold text-slate-900"
+                  >
+                    {POLICY_PROFILES.map((p) => (
+                      <option key={p.id} value={p.id}>
+                        {p.label}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+                <div className="space-y-1.5">
+                  <label className="block text-xs font-bold text-slate-700">Prior Tickets (3 Yr)</label>
+                  <select
+                    value={priorTickets}
+                    onChange={(e) => setPriorTickets(Number(e.target.value))}
+                    className="w-full rounded-xl border border-slate-300 bg-slate-50 px-3 py-2 text-xs font-semibold text-slate-900"
+                  >
+                    <option value={0}>0 (Clean Record)</option>
+                    <option value={1}>1 Prior Violation (+25%)</option>
+                    <option value={2}>2+ Prior Violations (+50%)</option>
+                  </select>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-3">
+                <div className="space-y-1.5">
+                  <label className="block text-xs font-bold text-slate-700">Traffic School Fee ($)</label>
+                  <input
+                    type="number"
+                    min={0}
+                    max={500}
+                    value={trafficSchoolFee}
+                    onChange={(e) => setTrafficSchoolFee(Math.max(0, Number(e.target.value) || 0))}
+                    className="w-full rounded-xl border border-slate-300 bg-slate-50 px-3 py-2 text-xs font-semibold tabular-nums text-slate-900"
+                  />
+                </div>
+                <div className="space-y-1.5">
+                  <label className="block text-xs font-bold text-slate-700">Time Cost ($)</label>
+                  <input
+                    type="number"
+                    min={0}
+                    max={1000}
+                    value={timeCostUsd}
+                    onChange={(e) => setTimeCostUsd(Math.max(0, Number(e.target.value) || 0))}
+                    className="w-full rounded-xl border border-slate-300 bg-slate-50 px-3 py-2 text-xs font-semibold tabular-nums text-slate-900"
+                  />
+                </div>
+              </div>
+
+              <div className="space-y-1.5">
+                <div className="flex justify-between text-xs font-bold text-slate-700">
+                  <span>Written Declaration Dismissal Prob.</span>
+                  <span className="tabular-nums text-[#059669]">{dismissalProb}%</span>
+                </div>
+                <input
+                  type="range"
+                  min={10}
+                  max={90}
+                  value={dismissalProb}
+                  onChange={(e) => setDismissalProb(Number(e.target.value))}
+                  className="w-full accent-[#059669]"
+                />
+              </div>
+            </div>
+          )}
 
           <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 text-xs space-y-1">
-            <div className="font-bold text-[#0f2747]">Statutory Assessment Multiplier: {st.assessmentMultiplier}x</div>
+            <div className="font-bold text-[#0f2747]">
+              Statutory Assessment Multiplier: {st.assessmentMultiplier}x
+            </div>
             <p className="text-slate-600">{st.notes}</p>
           </div>
         </div>
@@ -210,20 +384,33 @@ Submitted without waiver of right to contest or elect ${st.trafficSchoolEligible
             <div className="flex flex-wrap items-start justify-between gap-4 border-b border-slate-200 pb-4">
               <div>
                 <div className="text-[11px] font-bold uppercase tracking-widest text-[#c8a24a]">
-                  3-Year Financial Exposure &amp; Defense Brief
+                  3-Year Financial Exposure Brief
                 </div>
                 <h2 className="text-2xl font-extrabold text-[#0f2747] mt-1">
                   {st.name} (+{mphOver} mph Over Limit)
                 </h2>
                 <p className="text-xs text-slate-500 mt-0.5">{st.statuteRef}</p>
               </div>
-              <button
-                type="button"
-                onClick={() => window.print()}
-                className="px-4 py-2 rounded-xl bg-[#0f2747] hover:bg-slate-800 text-white text-xs font-bold transition cursor-pointer no-print"
-              >
-                Print / Save Brief PDF
-              </button>
+              <div className="flex flex-wrap gap-2 no-print">
+                <button
+                  type="button"
+                  onClick={handleCopySummary}
+                  className={`px-3.5 py-2 rounded-xl text-xs font-bold transition cursor-pointer border ${
+                    copiedSummary
+                      ? "bg-[#059669] text-white border-[#059669]"
+                      : "bg-slate-50 hover:bg-slate-100 text-[#0f2747] border-slate-300"
+                  }`}
+                >
+                  {copiedSummary ? "Copied Summary ✓" : "Copy Statutory & Points Summary"}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => window.print()}
+                  className="px-4 py-2 rounded-xl bg-[#0f2747] hover:bg-slate-800 text-white text-xs font-bold transition cursor-pointer"
+                >
+                  Print / Save Brief PDF
+                </button>
+              </div>
             </div>
 
             {/* KPI Row */}
@@ -277,7 +464,9 @@ Submitted without waiver of right to contest or elect ${st.trafficSchoolEligible
                   </tr>
                   <tr>
                     <td className="py-2.5 pr-4 font-semibold text-slate-800">Cumulative Auto Insurance Surcharge</td>
-                    <td className="py-2.5 px-3 text-slate-500">{calc.effectiveHikePct}% × ${annualPremium.toLocaleString()}/yr × {calc.years} yrs</td>
+                    <td className="py-2.5 px-3 text-slate-500">
+                      {calc.effectiveHikePct}% × ${calc.effectivePremium.toLocaleString()}/yr × {calc.years} yrs
+                    </td>
                     <td className="py-2.5 pl-3 text-right font-bold text-rose-700">${calc.insurance3Yr.toLocaleString()}</td>
                   </tr>
                   <tr>
@@ -285,6 +474,19 @@ Submitted without waiver of right to contest or elect ${st.trafficSchoolEligible
                     <td className="py-2.5 px-3 text-slate-500">{st.stateSurchargeRule}</td>
                     <td className="py-2.5 pl-3 text-right font-bold text-slate-900">${calc.stateSurcharge.toLocaleString()}</td>
                   </tr>
+                  {mode === "pro" && (
+                    <tr className="bg-emerald-50/60">
+                      <td className="py-2.5 pr-4 font-semibold text-emerald-900">
+                        Written Declaration Expected Value ({dismissalProb}% dismissal)
+                      </td>
+                      <td className="py-2.5 px-3 text-emerald-800">
+                        Traffic school fallback: ${trafficSchoolFee} fee + ${timeCostUsd} time
+                      </td>
+                      <td className="py-2.5 pl-3 text-right font-extrabold text-emerald-900">
+                        ${calc.writtenDeclEv.toLocaleString()} EV (Save ${calc.projectedSavings.toLocaleString()})
+                      </td>
+                    </tr>
+                  )}
                 </tbody>
               </table>
             </div>
@@ -317,7 +519,7 @@ Submitted without waiver of right to contest or elect ${st.trafficSchoolEligible
       <ToolPaywallDossier
         badge="2026 Written Defense & Discovery Kit"
         title="Export Complete 3-Year Defense & Discovery Packet"
-        desc="Includes editable Word templates for Trial by Written Declaration (TR-205 / ORS § 153.080), Radar/LiDAR Calibration Discovery Motions, and the 51-State Statutory Insurance Matrix."
+        desc="Includes editable .docx Trial by Written Declaration templates (TR-205 / ORS § 153.080), Radar/LiDAR Calibration Discovery Requests, and the .xlsx 3-Year ROI Ledger."
         dynamicAmount={`$${calc.totalExposure.toLocaleString()}`}
         storageKey="speeding_insurance_cost"
         sampleLines={[
@@ -326,9 +528,9 @@ Submitted without waiver of right to contest or elect ${st.trafficSchoolEligible
           { label: "Written Defense", value: st.writtenDeclarationAvailable ? st.writtenDeclarationStatute : "Counsel Plea" },
         ]}
         features={[
-          "Editable Word Written Declaration Templates",
-          "Radar & LiDAR Calibration Discovery Motion",
-          "51-State DMV Point & SDIP Matrix (Excel)",
+          "Editable .docx Written Declaration Templates",
+          "Radar & LiDAR Calibration Discovery Request",
+          ".xlsx 3-Year Insurance & ROI Ledger",
           "Trial de Novo & Traffic School Fallback Guide",
         ]}
       />

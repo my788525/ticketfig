@@ -57,10 +57,45 @@ export default async function GuideDetailPage({
         <div className="text-xs text-slate-500">
           Updated {g.updatedAt} · {g.readTime}
         </div>
+        {/* Quick-Jump Anchor Pills */}
+        <nav aria-label="Quick jump" className="flex flex-wrap gap-2 pt-2">
+          <a href="#direct-answer" className="px-3 py-1 rounded-full bg-slate-100 hover:bg-[#0f2747] hover:text-white text-xs font-bold text-[#0f2747] transition">
+            Direct Statutory Answer
+          </a>
+          <a href="#benchmark-table" className="px-3 py-1 rounded-full bg-slate-100 hover:bg-[#0f2747] hover:text-white text-xs font-bold text-[#0f2747] transition">
+            Benchmark Table
+          </a>
+          <a href="#defense-kit" className="px-3 py-1 rounded-full bg-amber-100 hover:bg-[#c8a24a] text-xs font-bold text-[#0f2747] transition">
+            Written Defense Kit
+          </a>
+          <a href="#guide-sections" className="px-3 py-1 rounded-full bg-slate-100 hover:bg-[#0f2747] hover:text-white text-xs font-bold text-[#0f2747] transition">
+            Statutory Analysis
+          </a>
+          <a href="#faq" className="px-3 py-1 rounded-full bg-slate-100 hover:bg-[#0f2747] hover:text-white text-xs font-bold text-[#0f2747] transition">
+            FAQs
+          </a>
+        </nav>
+      </div>
+
+      {/* Above-the-Fold Direct Statutory Answer Box */}
+      <div id="direct-answer" className="bg-slate-900 text-white rounded-2xl p-5 sm:p-6 shadow-sm space-y-2 border border-slate-800">
+        <div className="text-[11px] font-extrabold uppercase tracking-wider text-[#c8a24a]">
+          Direct Statutory Answer
+        </div>
+        <p className="text-sm text-slate-100 leading-relaxed">
+          <strong>{g.directAnswerTitle}:</strong> {g.description}{" "}
+          {g.directAnswerRows[0] && (
+            <>
+              Key benchmark: <strong>{g.directAnswerRows[0].metric}</strong> →{" "}
+              <span className="text-emerald-400 font-semibold">{g.directAnswerRows[0].value}</span> (
+              {g.directAnswerRows[0].statutoryNote}).
+            </>
+          )}
+        </p>
       </div>
 
       {/* Direct Answer Table */}
-      <div className="bg-white border-2 border-[#0f2747] rounded-2xl p-6 shadow-sm space-y-4">
+      <div id="benchmark-table" className="bg-white border-2 border-[#0f2747] rounded-2xl p-6 shadow-sm space-y-4">
         <div className="text-xs font-extrabold uppercase tracking-wider text-[#c8a24a]">
           Executive Summary
         </div>
@@ -87,8 +122,23 @@ export default async function GuideDetailPage({
         </div>
       </div>
 
+      {/* Inline Offer @ ~35-40% Scroll Depth */}
+      <div id="defense-kit">
+        <ToolPaywallDossier
+          badge="2026 Written Defense & Discovery Kit"
+          title="Download Full Legal Templates & 51-State Matrix"
+          desc="Get editable .docx Written Declarations, Radar/LiDAR Calibration Discovery Requests, and our .xlsx 3-Year ROI Ledger."
+          features={[
+            "Editable .docx Written Declaration Templates",
+            "Radar & LiDAR Discovery Request Forms",
+            ".xlsx 51-State DMV Point & ROI Ledger",
+            "All-Access Matrix Pass Included",
+          ]}
+        />
+      </div>
+
       {/* Article Sections */}
-      <div className="bg-white border border-slate-200 rounded-2xl p-6 space-y-6">
+      <div id="guide-sections" className="bg-white border border-slate-200 rounded-2xl p-6 space-y-6">
         {g.sections.map((s) => (
           <section key={s.heading} className="space-y-2.5">
             <h2 className="text-xl font-bold text-[#0f2747]">{s.heading}</h2>
@@ -111,7 +161,7 @@ export default async function GuideDetailPage({
       </div>
 
       {/* FAQs */}
-      <section className="bg-white border border-slate-200 rounded-2xl p-6 space-y-4">
+      <section id="faq" className="bg-white border border-slate-200 rounded-2xl p-6 space-y-4">
         <h2 className="text-lg font-bold text-[#0f2747]">Frequently Asked Questions</h2>
         <div className="space-y-3">
           {g.faqs.map((f) => (
@@ -122,18 +172,6 @@ export default async function GuideDetailPage({
           ))}
         </div>
       </section>
-
-      <ToolPaywallDossier
-        badge="2026 Written Defense & Discovery Kit"
-        title="Download Full Legal Templates & 51-State Matrix"
-        desc="Get editable Word written declarations, Radar/LiDAR calibration discovery motions, and our 3-year insurance surcharge workbook."
-        features={[
-          "Editable Written Declaration Word Templates",
-          "Radar & LiDAR Discovery Request Forms",
-          "51-State DMV Point & SDIP Matrix (Excel)",
-          "All-Access Matrix Pass Included",
-        ]}
-      />
     </div>
   );
 }

@@ -79,6 +79,44 @@ export default async function StateDetailPage({
           </a>
         </div>
         <p className="text-sm text-slate-600">{st.statuteRef} · {st.authorityName}</p>
+        {/* Quick-Jump Anchor Pills */}
+        <nav aria-label="Quick jump" className="flex flex-wrap gap-2 pt-2">
+          <a href="#direct-answer" className="px-3 py-1 rounded-full bg-slate-100 hover:bg-[#0f2747] hover:text-white text-xs font-bold text-[#0f2747] transition">
+            Direct Statutory Answer
+          </a>
+          <a href="#benchmark-table" className="px-3 py-1 rounded-full bg-slate-100 hover:bg-[#0f2747] hover:text-white text-xs font-bold text-[#0f2747] transition">
+            {st.abbr} Benchmark Table
+          </a>
+          <a href="#defense-kit" className="px-3 py-1 rounded-full bg-amber-100 hover:bg-[#c8a24a] text-xs font-bold text-[#0f2747] transition">
+            Written Defense Kit
+          </a>
+          <a href="#statutory-rules" className="px-3 py-1 rounded-full bg-slate-100 hover:bg-[#0f2747] hover:text-white text-xs font-bold text-[#0f2747] transition">
+            Statutory Rules
+          </a>
+          <a href="#faq" className="px-3 py-1 rounded-full bg-slate-100 hover:bg-[#0f2747] hover:text-white text-xs font-bold text-[#0f2747] transition">
+            FAQs
+          </a>
+        </nav>
+      </div>
+
+      {/* Above-the-Fold Direct Statutory Answer Box */}
+      <div id="direct-answer" className="bg-white border-2 border-[#0f2747] rounded-2xl p-5 sm:p-6 shadow-sm space-y-2">
+        <div className="text-[11px] font-extrabold uppercase tracking-wider text-[#c8a24a]">
+          Direct Statutory Answer · {st.name} ({st.abbr})
+        </div>
+        <p className="text-sm text-slate-800 leading-relaxed">
+          Under <strong>{st.statuteRef}</strong>, a {st.name} speeding conviction adds{" "}
+          <strong>{st.hasPoints ? `${st.minorPoints}–${st.majorPoints} DMV points` : "0 numeric DMV points"}</strong>{" "}
+          ({st.pointSystemName}) and triggers an average <strong>+{st.minorHikePct}% to +{st.majorHikePct}%</strong>{" "}
+          annual auto insurance surcharge over a <strong>{st.lookbackMonths}-month</strong> lookback (~$
+          {avg3YrMinor.toLocaleString()} on a $2,400/yr policy).{" "}
+          {st.trafficSchoolEligible
+            ? `Statutory traffic school / deferral is available (${st.trafficSchoolRule}).`
+            : `Traffic school does not automatically mask insurer surcharges (${st.trafficSchoolRule}).`}{" "}
+          {st.writtenDeclarationAvailable
+            ? `Mail-in Written Declaration is permitted under ${st.writtenDeclarationStatute}.`
+            : `Contestation requires court appearance or local counsel (${st.writtenDeclarationStatute}).`}
+        </p>
       </div>
 
       {/* KPI Strip */}
@@ -113,8 +151,68 @@ export default async function StateDetailPage({
         </div>
       </div>
 
+      {/* HTML Benchmark Table */}
+      <div id="benchmark-table" className="bg-white border border-slate-200 rounded-2xl p-6 shadow-xs space-y-4">
+        <h2 className="text-lg font-bold text-[#0f2747]">
+          {st.name} ({st.abbr}) 2026 Speeding Exposure Benchmark Table
+        </h2>
+        <div className="overflow-x-auto">
+          <table className="w-full text-xs text-left border-collapse tabular-nums">
+            <thead>
+              <tr className="border-b border-slate-200 text-slate-500 uppercase text-[10px]">
+                <th className="py-2 pr-4">Violation Tier</th>
+                <th className="py-2 px-3">Base Fine Range</th>
+                <th className="py-2 px-3">DMV Points</th>
+                <th className="py-2 px-3">Annual Insurance Hike</th>
+                <th className="py-2 pl-3 text-right">3-Yr Surcharge ($2,400/yr)</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-slate-100">
+              <tr>
+                <td className="py-3 pr-4 font-bold text-[#0f2747]">Minor Speeding (1–14 mph over)</td>
+                <td className="py-3 px-3 text-slate-700">${st.baseFineMinor[0]}–${st.baseFineMinor[1]} (×{st.assessmentMultiplier}x)</td>
+                <td className="py-3 px-3 font-semibold text-slate-800">{st.hasPoints ? `${st.minorPoints} pts` : "0 pts*"}</td>
+                <td className="py-3 px-3 font-semibold text-rose-700">+{st.minorHikePct}%/yr</td>
+                <td className="py-3 pl-3 text-right font-extrabold text-rose-700">+${avg3YrMinor.toLocaleString()}</td>
+              </tr>
+              <tr>
+                <td className="py-3 pr-4 font-bold text-[#0f2747]">Major Speeding (15+ mph over)</td>
+                <td className="py-3 px-3 text-slate-700">${st.baseFineMajor[0]}–${st.baseFineMajor[1]} (×{st.assessmentMultiplier}x)</td>
+                <td className="py-3 px-3 font-semibold text-slate-800">{st.hasPoints ? `${st.majorPoints} pts` : "0 pts*"}</td>
+                <td className="py-3 px-3 font-semibold text-rose-700">+{st.majorHikePct}%/yr</td>
+                <td className="py-3 pl-3 text-right font-extrabold text-rose-700">
+                  +${Math.round(2400 * (st.majorHikePct / 100) * (st.lookbackMonths / 12)).toLocaleString()}
+                </td>
+              </tr>
+              <tr className="bg-emerald-50/50">
+                <td className="py-3 pr-4 font-bold text-emerald-900">Traffic School / Written Dismissal</td>
+                <td className="py-3 px-3 text-emerald-800">{st.writtenDeclarationStatute}</td>
+                <td className="py-3 px-3 font-bold text-emerald-800">0 pts</td>
+                <td className="py-3 px-3 font-bold text-emerald-800">0%</td>
+                <td className="py-3 pl-3 text-right font-extrabold text-emerald-800">$0 Surcharge</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      {/* Inline Offer @ ~35-40% Scroll Depth */}
+      <div id="defense-kit">
+        <ToolPaywallDossier
+          badge={`${st.abbr} 2026 Defense Kit`}
+          title={`Export ${st.name} Written Defense & Discovery Packet`}
+          desc={`Includes ${st.name}-specific .docx discovery request templates, .xlsx 3-year insurance surcharge workbook, and 51-state statutory reference.`}
+          features={[
+            `${st.name} .docx Statutory Defense Templates`,
+            "Radar & LiDAR Calibration Discovery Request",
+            ".xlsx 3-Year Insurance Surcharge Ledger",
+            "All-Access Matrix Pass Included",
+          ]}
+        />
+      </div>
+
       {/* Statutory Breakdown */}
-      <div className="bg-white border border-slate-200 rounded-2xl p-6 space-y-5 shadow-xs">
+      <div id="statutory-rules" className="bg-white border border-slate-200 rounded-2xl p-6 space-y-5 shadow-xs">
         <h2 className="text-xl font-bold text-[#0f2747]">2026 Statutory &amp; Defense Summary</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
           <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
@@ -155,17 +253,17 @@ export default async function StateDetailPage({
         </Link>
       </div>
 
-      <ToolPaywallDossier
-        badge={`${st.abbr} 2026 Defense Kit`}
-        title={`Export ${st.name} Written Defense & Discovery Packet`}
-        desc={`Includes ${st.name}-specific discovery request templates, 3-year insurance surcharge workbook, and 51-state statutory reference.`}
-        features={[
-          `${st.name} Statutory Defense Templates`,
-          "Radar & LiDAR Calibration Discovery Motion",
-          "3-Year Insurance Surcharge Ledger (Excel)",
-          "All-Access Matrix Pass Included",
-        ]}
-      />
+      <section id="faq" className="bg-white border border-slate-200 rounded-2xl p-6 space-y-4">
+        <h2 className="text-lg font-bold text-[#0f2747]">{st.name} Traffic Ticket FAQs</h2>
+        <div className="space-y-3">
+          {faqs.map((f) => (
+            <div key={f.question} className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
+              <h3 className="text-sm font-bold text-[#0f2747]">{f.question}</h3>
+              <p className="text-xs text-slate-600 leading-relaxed">{f.answer}</p>
+            </div>
+          ))}
+        </div>
+      </section>
     </div>
   );
 }

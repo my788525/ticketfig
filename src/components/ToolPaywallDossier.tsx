@@ -239,6 +239,14 @@ export default function ToolPaywallDossier({
           <h3 className="text-2xl font-extrabold text-white tracking-tight">
             {dynamicAmount ? `Defend Against ${dynamicAmount} in 3-Year Exposure` : title}
           </h3>
+          <div className="rounded-xl bg-slate-950/80 border border-slate-700/80 px-3.5 py-2.5 text-xs text-slate-300 flex flex-wrap items-center justify-between gap-2">
+            <span>
+              <strong className="text-emerald-400">Free Brief Included:</strong> Full 3-Year Exposure Printout &amp; Statutory Summary
+            </span>
+            <span className="text-[#c8a24a] font-semibold">
+              Upgrade → Turnkey .docx Filings + .xlsx ROI Ledger
+            </span>
+          </div>
           <p className="text-slate-300 text-sm leading-relaxed">{desc}</p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-200">
