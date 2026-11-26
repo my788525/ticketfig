@@ -4,7 +4,7 @@
 
 This is the machine-readable companion to https://ticketfig.com/llms.txt. It lists every
 indexable page on ticketfig.com with its canonical URL.
-## Complete page index (76 pages)
+## Complete page index (78 pages)
 
 ### Home
 - [TicketFig — 2026 US Traffic Ticket, 3-Year Insurance Surcharge & Written Defense Platform](https://ticketfig.com)
@@ -13,9 +13,11 @@ indexable page on ticketfig.com with its canonical URL.
 - [About TicketFig.com | TicketFig](https://ticketfig.com/about/)
 
 ### /calculators
+- [Written Declaration & Radar/FOIA Discovery Builder (2026) | TicketFig | TicketFig](https://ticketfig.com/calculators/discovery-calibration-builder/)
 - [Fight vs. Pay Speeding Ticket 3-Year ROI Simulator (2026) | TicketFig](https://ticketfig.com/calculators/fight-vs-pay-roi/)
 - [DMV License Points & State Surcharge Trigger Tracker (2026) | TicketFig](https://ticketfig.com/calculators/license-points-calculator/)
 - [Speeding Ticket & 3-Year Insurance Cost Calculator (2026) | TicketFig](https://ticketfig.com/calculators/speeding-ticket-insurance-cost/)
+- [Ticket & Speed-Trap Forensics Auditor (2026) | TicketFig | TicketFig](https://ticketfig.com/calculators/ticket-error-forensics/)
 - [Trial by Written Declaration & Calibration Discovery Generator (2026) | TicketFig](https://ticketfig.com/calculators/written-declaration-eligibility/)
 
 ### /cases

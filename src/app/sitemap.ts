@@ -33,6 +33,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: r === '' ? 1.0 : r === '/wizard/' || r.startsWith('/calculators/') ? 0.95 : 0.8,
   }));
 
+  const flagshipToolRoutes: MetadataRoute.Sitemap = [
+    '/calculators/ticket-error-forensics/',
+    '/calculators/discovery-calibration-builder/',
+  ].map((r) => ({
+    url: BASE + r,
+    lastModified: '2026-11-26',
+    changeFrequency: 'weekly',
+    priority: 0.9,
+  }));
+
   const stateRoutes: MetadataRoute.Sitemap = TICKET_STATUTES_2026.map((s) => ({
     url: `${BASE}/states/${s.slug}/`,
     lastModified: '2026-10-23',
@@ -54,5 +64,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.85,
   }));
 
-  return [...routes, ...stateRoutes, ...caseRoutes, ...guideRoutes];
+  return [...routes, ...flagshipToolRoutes, ...stateRoutes, ...caseRoutes, ...guideRoutes];
 }

@@ -35,6 +35,18 @@ const CALCULATORS = [
     title: "Written Declaration & Discovery Tool",
     desc: "Verifies mail-in contest eligibility (CVC § 40902, ORS § 153.080) and generates Radar/LiDAR calibration discovery briefs.",
   },
+  {
+    href: "/calculators/ticket-error-forensics/",
+    badge: "Forensic Audit",
+    title: "Ticket & Speed-Trap Forensics Auditor",
+    desc: "Scores dismissal leverage (0–100), flags Cal. Veh. Code § 40802 speed traps & expired ETS surveys, and builds a courtroom defense outline.",
+  },
+  {
+    href: "/calculators/discovery-calibration-builder/",
+    badge: "FOIA & Radar Discovery",
+    title: "Written Declaration & Radar/FOIA Discovery Builder",
+    desc: "Generates a 5-point pre-trial discovery checklist (Tuning Fork, FCC, POST, ETS, Dashcam) and copyable formal discovery request.",
+  },
 ];
 
 export default function HomePage() {

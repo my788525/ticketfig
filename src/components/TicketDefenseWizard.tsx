@@ -4,6 +4,7 @@ import React, { useMemo, useState } from "react";
 import Link from "next/link";
 import { TICKET_STATUTES_2026, StateTicketStatute } from "@/data/ticket_statutes_2026";
 import ToolPaywallDossier from "@/components/ToolPaywallDossier";
+import IcsDeadlineButton from "@/components/IcsDeadlineButton";
 
 type ViolationCategory =
   | "speeding_1_14"
@@ -752,6 +753,13 @@ export default function TicketDefenseWizard() {
                     ? "Copied Summary ✓"
                     : "Copy Free Statutory & Points Summary"}
                 </button>
+                <IcsDeadlineButton
+                  title={`Court / Contest Deadline: ${selectedState.name} Citation`}
+                  description={`TicketFig 4-Step Defense Wizard (${selectedState.statuteRef}). Est. 3-Yr Exposure: $${analysis.totalThreeYearExposure.toLocaleString()}.`}
+                  daysFromNow={21}
+                  url="https://ticketfig.com/wizard/"
+                  filename={`ticketfig-deadline-${selectedState.abbr.toLowerCase()}.ics`}
+                />
                 <button
                   type="button"
                   onClick={() => window.print()}

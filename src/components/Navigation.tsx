@@ -10,6 +10,8 @@ const CALCULATOR_LINKS = [
   { href: "/calculators/fight-vs-pay-roi/", label: "Fight vs. Pay ROI" },
   { href: "/calculators/license-points-calculator/", label: "Points Tracker" },
   { href: "/calculators/written-declaration-eligibility/", label: "Written Defense" },
+  { href: "/calculators/ticket-error-forensics/", label: "Ticket Forensics" },
+  { href: "/calculators/discovery-calibration-builder/", label: "Discovery Builder" },
 ];
 
 const REFERENCE_LINKS = [
