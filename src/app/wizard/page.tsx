@@ -75,6 +75,9 @@ export default function TicketDefenseWizardPage() {
           Answer 4 quick questions about your citation, insurance premium, and evidence to
           generate a free printable 3-year exposure brief and match your optimal defense path.
         </p>
+        <p className="text-xs text-slate-700 bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 max-w-3xl">
+          <strong className="text-[#0f2747]">Ballpark vs. Exact Audit:</strong> Rule-of-thumb ticket estimates only give a rough range—exact 36-month insurance surcharges, NC SDIP / NY DRA cliffs, and Written Declaration eligibility must be calculated interactively on-site below.
+        </p>
       </div>
 
       <TicketDefenseWizard />
