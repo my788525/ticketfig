@@ -9,6 +9,7 @@ const BASE = 'https://ticketfig.com';
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = [
     '',
+    '/wizard/',
     '/calculators/speeding-ticket-insurance-cost/',
     '/calculators/fight-vs-pay-roi/',
     '/calculators/license-points-calculator/',
@@ -28,8 +29,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const routes: MetadataRoute.Sitemap = staticRoutes.map((r) => ({
     url: BASE + r,
     lastModified: '2026-10-23',
-    changeFrequency: r === '' ? 'daily' : r.startsWith('/calculators/') ? 'weekly' : 'monthly',
-    priority: r === '' ? 1.0 : r.startsWith('/calculators/') ? 0.95 : 0.8,
+    changeFrequency: r === '' ? 'daily' : r === '/wizard/' || r.startsWith('/calculators/') ? 'weekly' : 'monthly',
+    priority: r === '' ? 1.0 : r === '/wizard/' || r.startsWith('/calculators/') ? 0.95 : 0.8,
   }));
 
   const stateRoutes: MetadataRoute.Sitemap = TICKET_STATUTES_2026.map((s) => ({

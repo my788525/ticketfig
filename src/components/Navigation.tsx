@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 const CALCULATOR_LINKS = [
+  { href: "/wizard/", label: "Defense Wizard" },
   { href: "/calculators/speeding-ticket-insurance-cost/", label: "Insurance Cost" },
   { href: "/calculators/fight-vs-pay-roi/", label: "Fight vs. Pay ROI" },
   { href: "/calculators/license-points-calculator/", label: "Points Tracker" },

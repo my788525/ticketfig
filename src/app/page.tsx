@@ -63,16 +63,16 @@ export default function HomePage() {
             </p>
             <div className="mt-8 flex flex-col sm:flex-row sm:flex-wrap gap-3.5">
               <Link
-                href="/calculators/speeding-ticket-insurance-cost/"
+                href="/wizard/"
                 className="px-6 py-3.5 rounded-xl bg-[#c8a24a] hover:bg-amber-400 text-slate-950 font-extrabold text-sm text-center transition shadow-lg"
               >
-                Calculate 3-Year Ticket Cost →
+                Start 4-Step Defense Wizard →
               </Link>
               <Link
-                href="/calculators/written-declaration-eligibility/"
+                href="/calculators/speeding-ticket-insurance-cost/"
                 className="px-6 py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white border border-slate-700 font-bold text-sm text-center transition"
               >
-                Check Written Declaration Eligibility
+                Calculate 3-Year Ticket Cost
               </Link>
             </div>
           </div>
@@ -118,6 +118,29 @@ export default function HomePage() {
             </p>
           </div>
         </div>
+
+        <Link
+          href="/wizard/"
+          className="group block bg-[#0f2747] text-white border border-slate-800 hover:border-[#c8a24a] rounded-2xl p-6 shadow-md transition"
+        >
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div className="space-y-1.5">
+              <span className="inline-block px-2.5 py-0.5 rounded-full text-[11px] font-bold uppercase tracking-wider bg-[#c8a24a] text-slate-950">
+                Flagship Guided Flow
+              </span>
+              <h3 className="text-xl font-extrabold text-white group-hover:text-[#c8a24a] transition">
+                4-Step Ticket Defense &amp; 3-Year Insurance Decision Wizard
+              </h3>
+              <p className="text-sm text-slate-300 max-w-3xl">
+                Answer 4 guided questions to generate a free printable 3-Year Insurance Exposure
+                Brief and match your exact Traffic School, Written Declaration, or Plea Reduction kit.
+              </p>
+            </div>
+            <div className="shrink-0 px-5 py-3 rounded-xl bg-[#c8a24a] text-slate-950 text-xs font-extrabold text-center">
+              Launch Wizard →
+            </div>
+          </div>
+        </Link>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
           {CALCULATORS.map((c) => (
