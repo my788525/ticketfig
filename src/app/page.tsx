@@ -43,63 +43,63 @@ export default function HomePage() {
   );
 
   return (
-    <div className="space-y-16 pb-12">
+    <div className="space-y-14 sm:space-y-16 pb-12">
       {/* Executive Legal-Brief Hero */}
       <section className="bg-[#0f2747] text-white border-b border-slate-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 lg:py-20 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-          <div className="lg:col-span-7 space-y-6">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900/90 border border-[#c8a24a]/50 text-[#c8a24a] text-xs font-bold uppercase tracking-wider">
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-12 sm:py-20 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+          <div className="lg:col-span-7">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-[#c8a24a]/50 text-[#c8a24a] text-[11px] sm:text-xs font-bold uppercase tracking-wider max-w-full">
               51 U.S. Jurisdictions · 2026 Statutory Schedules
             </div>
-            <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight text-white">
+            <h1 className="mt-6 text-[28px] sm:text-5xl font-extrabold tracking-tight leading-[1.15] text-white">
               Never Pay a Traffic Ticket Before Auditing Your{" "}
               <span className="text-[#c8a24a]">3-Year Insurance Exposure</span>.
             </h1>
-            <p className="text-slate-300 text-base sm:text-lg leading-relaxed max-w-2xl">
+            <p className="mt-6 text-slate-300 text-base sm:text-lg leading-relaxed max-w-2xl">
               A $238 citation routinely triggers $1,650 to $3,200+ in 36-month auto insurance
               surcharges, Good Driver Discount losses, and state DMV assessments. Audit your exact
               state statutes and generate Written Declaration &amp; Calibration Discovery briefs in
               seconds.
             </p>
-            <div className="flex flex-wrap gap-3 pt-1">
+            <div className="mt-8 flex flex-col sm:flex-row sm:flex-wrap gap-3.5">
               <Link
                 href="/calculators/speeding-ticket-insurance-cost/"
-                className="px-6 py-3.5 rounded-xl bg-[#c8a24a] hover:bg-amber-400 text-slate-950 font-extrabold text-sm transition shadow-lg"
+                className="px-6 py-3.5 rounded-xl bg-[#c8a24a] hover:bg-amber-400 text-slate-950 font-extrabold text-sm text-center transition shadow-lg"
               >
                 Calculate 3-Year Ticket Cost →
               </Link>
               <Link
                 href="/calculators/written-declaration-eligibility/"
-                className="px-6 py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white border border-slate-700 font-bold text-sm transition"
+                className="px-6 py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white border border-slate-700 font-bold text-sm text-center transition"
               >
                 Check Written Declaration Eligibility
               </Link>
             </div>
           </div>
 
-          <div className="lg:col-span-5 bg-slate-950/90 border border-slate-800 rounded-2xl p-6 space-y-4 shadow-2xl">
-            <div className="flex items-center justify-between border-b border-slate-800 pb-3">
+          <div className="lg:col-span-5 bg-slate-950/90 border border-slate-800 rounded-2xl p-5 sm:p-6 space-y-4 shadow-2xl">
+            <div className="flex items-center justify-between gap-2 border-b border-slate-800 pb-3">
               <span className="text-xs font-mono uppercase tracking-wider text-[#c8a24a]">
                 2026 Statutory Snapshot
               </span>
-              <span className="text-[11px] font-semibold text-emerald-400">Verified .gov Data</span>
+              <span className="text-[11px] font-semibold text-emerald-400 shrink-0">Verified .gov Data</span>
             </div>
-            <div className="space-y-3 text-xs tabular-nums">
-              <div className="flex justify-between items-center py-1.5 border-b border-slate-800/70">
-                <span className="text-slate-300">CA 78-in-65 (CVC § 40902)</span>
-                <span className="font-bold text-white">$1,890 3-Yr Exposure</span>
+            <div className="space-y-3.5 text-xs tabular-nums">
+              <div className="flex justify-between items-center gap-3 py-1.5 border-b border-slate-800/70">
+                <span className="text-slate-300 min-w-0">CA 78-in-65 (CVC § 40902)</span>
+                <span className="font-bold text-white shrink-0">$1,890 3-Yr Exposure</span>
               </div>
-              <div className="flex justify-between items-center py-1.5 border-b border-slate-800/70">
-                <span className="text-slate-300">NC SDIP +1pt / +2pt Hike</span>
-                <span className="font-bold text-rose-400">+30% to +45% Mandatory</span>
+              <div className="flex justify-between items-center gap-3 py-1.5 border-b border-slate-800/70">
+                <span className="text-slate-300 min-w-0">NC SDIP +1pt / +2pt Hike</span>
+                <span className="font-bold text-rose-400 shrink-0">+30% to +45% Mandatory</span>
               </div>
-              <div className="flex justify-between items-center py-1.5 border-b border-slate-800/70">
-                <span className="text-slate-300">NY 6-Pt DRA Cliff (VTL § 1199)</span>
-                <span className="font-bold text-[#c8a24a]">$300+ State Assessment</span>
+              <div className="flex justify-between items-center gap-3 py-1.5 border-b border-slate-800/70">
+                <span className="text-slate-300 min-w-0">NY 6-Pt DRA Cliff (VTL § 1199)</span>
+                <span className="font-bold text-[#c8a24a] shrink-0">$300+ State Assessment</span>
               </div>
-              <div className="flex justify-between items-center py-1.5">
-                <span className="text-slate-300">TX HB 2048 Points Repealed</span>
-                <span className="font-bold text-emerald-400">DSC / Art. 45.0511 Shield</span>
+              <div className="flex justify-between items-center gap-3 py-1.5">
+                <span className="text-slate-300 min-w-0">TX HB 2048 Points Repealed</span>
+                <span className="font-bold text-emerald-400 shrink-0">DSC / Art. 45.0511 Shield</span>
               </div>
             </div>
           </div>
@@ -107,19 +107,19 @@ export default function HomePage() {
       </section>
 
       {/* 4 Executive Calculators */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+      <section className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 space-y-6">
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0f2747]">
               Executive Defense &amp; Actuarial Workbenches
             </h2>
-            <p className="text-sm text-slate-600 mt-1">
+            <p className="text-sm text-slate-600 mt-1.5">
               100% browser-based · Realistic pre-fills · Printable Briefs &amp; Copyable Discovery Requests
             </p>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
           {CALCULATORS.map((c) => (
             <Link
               key={c.href}
@@ -142,7 +142,7 @@ export default function HomePage() {
       </section>
 
       {/* Inline Offer @ ~35-40% Scroll Depth */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
         <ToolPaywallDossier
           badge="2026 Written Defense & Discovery Kit"
           title="Unlock the Complete 51-State Traffic Defense & Discovery Suite"
@@ -157,13 +157,13 @@ export default function HomePage() {
       </div>
 
       {/* Featured State Dossiers */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+      <section className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 space-y-6">
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div>
             <h2 className="text-2xl font-extrabold text-[#0f2747]">
               51-Jurisdiction Statutory Point &amp; Insurance Dossiers
             </h2>
-            <p className="text-sm text-slate-600 mt-1">
+            <p className="text-sm text-slate-600 mt-1.5">
               Every state DMV point schedule, suspension threshold, traffic school cooldown, and official .gov link.
             </p>
           </div>
@@ -172,7 +172,7 @@ export default function HomePage() {
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {featuredStates.map((s) => (
             <Link
               key={s.abbr}
@@ -196,11 +196,11 @@ export default function HomePage() {
       </section>
 
       {/* Real-Ledger Case Studies */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+      <section className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 space-y-6">
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div>
             <h2 className="text-2xl font-extrabold text-[#0f2747]">Real-Ledger Case Studies</h2>
-            <p className="text-sm text-slate-600 mt-1">
+            <p className="text-sm text-slate-600 mt-1.5">
               Line-by-line 3-year financial ledgers across California, North Carolina, and New York.
             </p>
           </div>
@@ -209,7 +209,7 @@ export default function HomePage() {
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
           {CASE_STUDIES_2026.map((c) => (
             <Link
               key={c.slug}
@@ -231,7 +231,7 @@ export default function HomePage() {
       </section>
 
       {/* Deep Guides */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+      <section className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 space-y-6">
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div>
             <h2 className="text-2xl font-extrabold text-[#0f2747]">
