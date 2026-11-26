@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     canonical: './',
   },
   title: {
-    default: 'TicketFig — 2026 US Traffic Ticket, 3-Year Insurance Surcharge & Written Defense Platform',
+    default: 'TicketFig — 2026 US Ticket & Insurance Defense',
     template: '%s | TicketFig',
   },
   description:

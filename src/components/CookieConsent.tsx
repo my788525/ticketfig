@@ -5,18 +5,76 @@ import Link from "next/link";
 
 const CONSENT_STORAGE_KEY = "ticketfig_cookie_consent_v1";
 
+const EU_UK_CH_COUNTRIES = new Set([
+  "AT", "BE", "BG", "HR", "CY", "CZ", "DK", "EE", "FI", "FR", "DE", "GR",
+  "HU", "IS", "IE", "IT", "LV", "LI", "LT", "LU", "MT", "NL", "NO", "PL",
+  "PT", "RO", "SK", "SI", "ES", "SE", "CH", "GB", "UK",
+]);
+
+const US_PRIVACY_STATES = new Set([
+  "CA", "VA", "CO", "CT", "UT", "TX", "OR", "MT", "FL", "IA", "IN", "TN",
+  "DE", "NE", "NH", "NJ", "MN", "MD", "KY", "RI",
+]);
+
 export default function CookieConsent() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
+    let cancelled = false;
+
     try {
       const saved = localStorage.getItem(CONSENT_STORAGE_KEY);
-      if (!saved) {
-        setVisible(true);
-      }
+      if (saved) return;
     } catch {
-      // Ignore storage errors in restricted environments
+      return;
     }
+
+    const shouldShowForGeo = (country: string, regionCode: string) => {
+      const c = country.trim().toUpperCase();
+      const r = regionCode.trim().toUpperCase();
+      return EU_UK_CH_COUNTRIES.has(c) || (c === "US" && US_PRIVACY_STATES.has(r));
+    };
+
+    const detectGeo = async () => {
+      try {
+        const res = await fetch("/api/geo", {
+          cache: "no-store",
+          signal: AbortSignal.timeout(2000),
+        });
+        if (res.ok) {
+          const data = (await res.json()) as { country?: string; regionCode?: string };
+          if (!cancelled && shouldShowForGeo(data.country || "", data.regionCode || "")) {
+            setVisible(true);
+          }
+          return;
+        }
+      } catch {
+        // Fallback to /cdn-cgi/trace below
+      }
+
+      try {
+        const traceRes = await fetch("/cdn-cgi/trace", {
+          cache: "no-store",
+          signal: AbortSignal.timeout(2000),
+        });
+        if (traceRes.ok) {
+          const text = await traceRes.text();
+          const match = text.match(/^loc=([A-Z]{2})$/m);
+          const loc = match ? match[1].toUpperCase() : "";
+          if (!cancelled && EU_UK_CH_COUNTRIES.has(loc)) {
+            setVisible(true);
+          }
+        }
+      } catch {
+        // Keep visible = false if geo detection fails
+      }
+    };
+
+    void detectGeo();
+
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   const handleConsent = (status: "accepted" | "essential") => {

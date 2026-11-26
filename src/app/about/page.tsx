@@ -3,7 +3,7 @@ import Link from "next/link";
 import { JsonLd, breadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-  title: "About TicketFig.com — 51-Jurisdiction Traffic Citation Actuarial Platform",
+  title: "About TicketFig — 51-State Ticket Platform",
   description:
     "TicketFig is an institutional-grade U.S. traffic citation actuarial and statutory defense reference platform covering all 50 states + DC.",
   alternates: {

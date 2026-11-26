@@ -4,7 +4,7 @@ import { TICKET_STATUTES_2026 } from "@/data/ticket_statutes_2026";
 import { JsonLd, breadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-  title: "All 51 U.S. State Traffic Ticket, DMV Point & Insurance Surcharge Schedules (2026)",
+  title: "51-State Ticket, DMV & Insurance Schedules",
   description:
     "Compare DMV point systems, 3-year auto insurance surcharge benchmarks, traffic school masking rules, and Written Declaration eligibility across all 50 states + DC.",
   alternates: {

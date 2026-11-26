@@ -4,7 +4,7 @@ import LicensePointsCalculator from "@/components/calculators/LicensePointsCalcu
 import { JsonLd, webApplicationJsonLd, breadcrumbJsonLd, faqJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-  title: "DMV License Points & State Surcharge Trigger Tracker (2026)",
+  title: "DMV License Points & Surcharge Tracker (2026)",
   description:
     "Track state DMV point accumulation, suspension thresholds, New York 6-point Driver Responsibility Assessment ($300+), New Jersey MVC surcharges, and NC SDIP triggers.",
   alternates: {

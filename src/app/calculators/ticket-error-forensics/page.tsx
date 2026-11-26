@@ -4,7 +4,7 @@ import TicketErrorForensics from "@/components/calculators/TicketErrorForensics"
 import { JsonLd, webApplicationJsonLd, breadcrumbJsonLd, faqJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Ticket & Speed-Trap Forensics Auditor (2026) | TicketFig",
+  title: "Ticket & Speed-Trap Forensics Auditor (2026)",
   description:
     "Audit traffic citations for speed-trap violations (Cal. Veh. Code § 40802), expired Engineering & Traffic Surveys (ETS), Radar/LiDAR occlusion, and procedural defects across all 51 jurisdictions.",
   alternates: {

@@ -3,7 +3,7 @@ import Link from "next/link";
 import { JsonLd, breadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy — Client-Side Execution, AdSense, GDPR & CCPA (2026)",
+  title: "Privacy Policy — GDPR, CCPA & AdSense (2026)",
   description:
     "TicketFig executes all traffic ticket and insurance calculations 100% in your browser. Includes Google AdSense, DART cookie, GDPR, and CCPA privacy disclosures.",
   alternates: {

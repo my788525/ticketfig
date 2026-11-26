@@ -4,7 +4,7 @@ import { TICKET_STATUTES_2026 } from "@/data/ticket_statutes_2026";
 import { JsonLd, breadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Primary U.S. Traffic Statutes & .gov DMV Authorities (2026)",
+  title: "U.S. Traffic Statutes & .gov DMV Links (2026)",
   description:
     "Complete 51-jurisdiction index of controlling state vehicle code sections, written declaration statutes, and official .gov DMV / court URLs.",
   alternates: {

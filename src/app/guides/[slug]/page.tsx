@@ -9,6 +9,15 @@ export function generateStaticParams() {
   return GUIDES_2026.map((g) => ({ slug: g.slug }));
 }
 
+function fitTitle(text: string, maxLen = 48): string {
+  if (text.length <= maxLen) return text;
+  const cut = text
+    .slice(0, maxLen)
+    .replace(/\s+\S*$/, "")
+    .replace(/[\s:,\-–—&]+$/, "");
+  return cut || text.slice(0, maxLen);
+}
+
 export async function generateMetadata({
   params,
 }: {
@@ -18,7 +27,7 @@ export async function generateMetadata({
   const g = GUIDE_BY_SLUG[slug];
   if (!g) return { title: "Guide Not Found" };
   return {
-    title: g.title,
+    title: fitTitle(g.title, 48),
     description: g.description,
     alternates: {
       canonical: `/guides/${g.slug}/`,

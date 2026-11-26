@@ -4,7 +4,7 @@ import { GUIDES_2026 } from "@/data/cases_and_guides_2026";
 import { JsonLd, breadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-  title: "2026 Traffic Ticket Defense & Insurance Actuarial Guides",
+  title: "2026 Traffic Ticket Defense & Cost Guides",
   description:
     "Deep statutory guides with Direct Answer tables: Traffic School vs. Fighting, Radar vs. LiDAR Calibration Discovery, NC SDIP & PJC, CA CVC § 40902, Corporate MVR Impact, and Insurance Lookback Windows.",
   alternates: {

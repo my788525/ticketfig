@@ -4,7 +4,7 @@ import FightVsPayRoiCalculator from "@/components/calculators/FightVsPayRoiCalcu
 import { JsonLd, webApplicationJsonLd, breadcrumbJsonLd, faqJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Fight vs. Pay Speeding Ticket 3-Year ROI Simulator (2026)",
+  title: "Fight vs. Pay Ticket 3-Year ROI Simulator",
   description:
     "Compare paying a speeding ticket vs. traffic school vs. Trial by Written Declaration vs. hiring a traffic lawyer on a 3-year net expected value basis.",
   alternates: {

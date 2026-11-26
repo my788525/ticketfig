@@ -4,7 +4,7 @@ import WrittenDeclarationGenerator from "@/components/calculators/WrittenDeclara
 import { JsonLd, webApplicationJsonLd, breadcrumbJsonLd, faqJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Trial by Written Declaration & Calibration Discovery Generator (2026)",
+  title: "Written Declaration Eligibility & Discovery",
   description:
     "Check state Trial by Written Declaration eligibility (Cal. Veh. Code § 40902, ORS § 153.080, WA IRLJ 3.5) and generate Radar/LiDAR calibration discovery requests.",
   alternates: {

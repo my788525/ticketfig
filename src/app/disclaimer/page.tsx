@@ -3,7 +3,7 @@ import Link from "next/link";
 import { JsonLd, breadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Legal Disclaimer & Actuarial Scope Limitations (2026)",
+  title: "Legal Disclaimer & Scope Limitations (2026)",
   description:
     "Important legal disclaimer, statutory accuracy scope, insurance rate modeling assumptions, and non-attorney notice for TicketFig.com.",
   alternates: {

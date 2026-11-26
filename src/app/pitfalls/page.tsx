@@ -5,7 +5,7 @@ import { JsonLd, breadcrumbJsonLd, faqJsonLd } from "@/components/JsonLd";
 import ToolPaywallDossier from "@/components/ToolPaywallDossier";
 
 export const metadata: Metadata = {
-  title: "Traffic Ticket Pitfalls, Black Holes & 2026 Survival Playbook",
+  title: "Traffic Ticket Pitfalls & Survival Playbook",
   description:
     "6 real-case traffic ticket traps—from the $150 Click-to-Pay 24% insurance spike to California's 20-day Trial de Novo cliff, NC household PJC limits, and DLC reporting.",
   alternates: {

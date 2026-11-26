@@ -9,6 +9,15 @@ export function generateStaticParams() {
   return CASE_STUDIES_2026.map((c) => ({ slug: c.slug }));
 }
 
+function fitTitle(text: string, maxLen = 48): string {
+  if (text.length <= maxLen) return text;
+  const cut = text
+    .slice(0, maxLen)
+    .replace(/\s+\S*$/, "")
+    .replace(/[\s:,\-–—&]+$/, "");
+  return cut || text.slice(0, maxLen);
+}
+
 export async function generateMetadata({
   params,
 }: {
@@ -18,7 +27,7 @@ export async function generateMetadata({
   const cs = CASE_BY_SLUG[slug];
   if (!cs) return { title: "Case Not Found" };
   return {
-    title: cs.title,
+    title: fitTitle(cs.title, 48),
     description: cs.subtitle,
     alternates: {
       canonical: `/cases/${cs.slug}/`,

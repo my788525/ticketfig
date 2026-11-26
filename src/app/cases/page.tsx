@@ -4,7 +4,7 @@ import { CASE_STUDIES_2026 } from "@/data/cases_and_guides_2026";
 import { JsonLd, breadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Real-Ledger Traffic Ticket Defense Case Studies (2026)",
+  title: "Traffic Ticket Defense Case Studies (2026)",
   description:
     "Verified line-by-line 3-year financial ledgers showing how California CVC § 40902, North Carolina PJC, and New York plea-by-mail saved $1,890 to $2,393.",
   alternates: {

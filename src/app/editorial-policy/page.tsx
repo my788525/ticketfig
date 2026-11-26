@@ -3,7 +3,7 @@ import Link from "next/link";
 import { JsonLd, breadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Editorial Policy & Statutory Verification Standards (2026)",
+  title: "Editorial Policy & Verification Standards",
   description:
     "How TicketFig researches, verifies, and updates 51-jurisdiction DMV point schedules, court assessment multipliers, and insurance surcharge benchmarks.",
   alternates: {
