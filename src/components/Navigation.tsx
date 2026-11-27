@@ -22,6 +22,7 @@ const RESEARCH_LINKS = [
 
 const MOBILE_PRIMARY_LINKS = [
   { href: "/wizard/", label: "Defense Wizard" },
+  { href: "/toolkits/", label: "Toolkits" },
   ...CALCULATOR_LINKS.map(({ href, label }) => ({ href, label })),
 ];
 
@@ -113,6 +114,7 @@ export default function Navigation() {
   }, []);
 
   const isWizardActive = pathname?.startsWith("/wizard");
+  const isToolkitsActive = pathname?.startsWith("/toolkits");
   const isCalcActive = pathname?.startsWith("/calculators");
   const isStatesActive = pathname?.startsWith("/states");
   const isPitfallsActive = pathname?.startsWith("/pitfalls");
@@ -277,6 +279,16 @@ export default function Navigation() {
               </div>
             )}
           </div>
+          <Link
+            href="/toolkits/"
+            className={`whitespace-nowrap px-2.5 py-2 rounded-lg text-[13px] font-semibold transition ${
+              isToolkitsActive
+                ? "text-amber-400 bg-zinc-800/70"
+                : "text-zinc-200 hover:text-amber-400 hover:bg-zinc-800/40"
+            }`}
+          >
+            Toolkits
+          </Link>
         </nav>
 
         <div className="hidden lg:flex items-center shrink-0">

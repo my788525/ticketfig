@@ -36,12 +36,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   const flagshipToolRoutes: MetadataRoute.Sitemap = [
+    '/toolkits/',
     '/pitfalls/',
     '/calculators/ticket-error-forensics/',
     '/calculators/discovery-calibration-builder/',
   ].map((r) => ({
     url: BASE + r,
-    lastModified: '2026-11-26',
+    lastModified: '2026-11-27',
     changeFrequency: 'weekly',
     priority: 0.9,
   }));

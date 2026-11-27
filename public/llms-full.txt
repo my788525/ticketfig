@@ -4,7 +4,7 @@
 
 This is the machine-readable companion to https://ticketfig.com/llms.txt. It lists every
 indexable page on ticketfig.com with its canonical URL.
-## Complete page index (81 pages)
+## Complete page index (82 pages)
 
 ### Home
 - [TicketFig — 2026 US Ticket & Insurance Defense](https://ticketfig.com)
@@ -115,6 +115,9 @@ indexable page on ticketfig.com with its canonical URL.
 
 ### /terms
 - [Terms of Use & Legal Disclaimer (2026) | TicketFig](https://ticketfig.com/terms/)
+
+### /toolkits
+- [VIP Traffic Defense Toolkit Store (2026) | TicketFig](https://ticketfig.com/toolkits/)
 
 ### /wizard
 - [4-Step Ticket Defense & Insurance Wizard | TicketFig](https://ticketfig.com/wizard/)
