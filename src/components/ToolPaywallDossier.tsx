@@ -168,6 +168,24 @@ export default function ToolPaywallDossier({
         </div>
       )}
 
+      {/* Behavioral CRO: Zeigarnik 85% Progress + Loss Aversion + Statutory Window */}
+      <div className="mb-6 rounded-2xl bg-slate-950/90 border border-[#c8a24a]/35 p-4 space-y-2.5 relative z-10">
+        <div className="flex flex-wrap items-center justify-between gap-2 text-xs">
+          <span className="font-bold text-white">
+            Written Defense Readiness: <span className="text-[#c8a24a]">85% Complete</span>
+          </span>
+          <span className="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-amber-500/15 border border-amber-400/40 text-amber-300">
+            ⏳ Strict Plea / TR-205 Deadline · Traffic Lawyer: $350–$500 vs. {price}
+          </span>
+        </div>
+        <div className="w-full h-2 rounded-full bg-slate-800 overflow-hidden">
+          <div className="h-full w-[85%] rounded-full bg-gradient-to-r from-[#059669] via-[#c8a24a] to-amber-400" />
+        </div>
+        <div className="text-[11px] text-amber-200/90 leading-snug">
+          <strong>⚠️ 3-Year Surcharge Warning:</strong> Paying a moving violation online locks in $1,650–$3,200+ in 36-month auto insurance hikes.
+        </div>
+      </div>
+
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
         {/* Left Column: Legal Brief Dossier Preview */}
         <div className="lg:col-span-5 flex justify-center">
