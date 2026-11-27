@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import FightVsPayRoiCalculator from "@/components/calculators/FightVsPayRoiCalculator";
+import StatutoryAuditStamp from "@/components/StatutoryAuditStamp";
 import { JsonLd, webApplicationJsonLd, breadcrumbJsonLd, faqJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
@@ -55,6 +56,7 @@ export default function FightVsPayRoiPage() {
           Quantify the expected 3-year financial return of contesting via Written Declaration,
           electing statutory Traffic School, or retaining local counsel vs. paying the citation.
         </p>
+        <StatutoryAuditStamp />
       </div>
 
       <FightVsPayRoiCalculator />
@@ -165,7 +167,7 @@ export default function FightVsPayRoiPage() {
           <div className="p-4 rounded-xl bg-[#0f2747] text-white border border-slate-800 space-y-1">
             <div className="font-bold text-[#c8a24a]">3. Written Contest (55% Win)</div>
             <div className="text-lg font-extrabold text-white">-$177 EV</div>
-            <p className="text-slate-300">55% chance of $0 total cost; 45% fallback to Traffic School ($394). Best net ROI.</p>
+            <p className="text-slate-300">EV = (1 − 0.55) × $394 = $177 (55% chance of $0; 45% Traffic School fallback). Best net ROI.</p>
           </div>
           <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
             <div className="font-bold text-[#0f2747]">4. Local Counsel ($275)</div>

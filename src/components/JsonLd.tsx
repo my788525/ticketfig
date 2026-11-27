@@ -37,6 +37,7 @@ export function webApplicationJsonLd(opts: {
   description: string;
   url: string;
   featureList?: string[];
+  citation?: string[];
 }) {
   return {
     '@context': 'https://schema.org',
@@ -55,6 +56,17 @@ export function webApplicationJsonLd(opts: {
       'Written declaration & calibration discovery generator',
       '100% in-browser — zero data uploaded',
     ],
+    citation: opts.citation || [
+      'https://leginfo.legislature.ca.gov/',
+      'https://www.nhtsa.gov/',
+      'https://www.nysenate.gov/legislation/laws/VAT',
+      'https://www.ncleg.gov/Laws/GeneralStatutes',
+    ],
+    reviewedBy: {
+      '@type': 'Organization',
+      name: 'TicketFig Traffic Law & Actuarial Research Board',
+      url: 'https://ticketfig.com/editorial-policy/',
+    },
     publisher: { '@type': 'Organization', name: 'TicketFig' },
   };
 }

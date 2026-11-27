@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import SpeedingTicketCostCalculator from "@/components/calculators/SpeedingTicketCostCalculator";
+import StatutoryAuditStamp from "@/components/StatutoryAuditStamp";
 import { JsonLd, webApplicationJsonLd, breadcrumbJsonLd, faqJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
@@ -55,9 +56,52 @@ export default function SpeedingTicketInsuranceCostPage() {
           The printed fine is only the tip of the iceberg. Audit your statutory court assessments,
           state DMV surcharges, and 36-to-60 month auto insurance premium exposure before you pay.
         </p>
+        <StatutoryAuditStamp />
       </div>
 
       <SpeedingTicketCostCalculator />
+
+      {/* Worked Verification Math Example */}
+      <section className="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 space-y-4 no-print">
+        <div className="space-y-1">
+          <span className="inline-block px-2.5 py-0.5 rounded-full bg-emerald-100 text-[#059669] text-[11px] font-bold uppercase tracking-wider">
+            Worked Verification Math Example
+          </span>
+          <h2 className="text-xl font-extrabold text-[#0f2747]">
+            36-Month Surcharge + Expected Value (EV) Walkthrough
+          </h2>
+          <p className="text-sm text-slate-600 leading-relaxed max-w-4xl">
+            Example: A California driver paying <strong>$2,400/yr</strong> for auto insurance receives a
+            minor speeding citation (+13 mph, <strong>CVC § 22349</strong>) with a <strong>$35</strong> base fine:
+          </p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+          <div className="p-4 rounded-xl bg-rose-50 border border-rose-200 space-y-1">
+            <div className="font-bold text-rose-900">1. Court Fine + 36-Mo Surcharge</div>
+            <div className="text-lg font-extrabold text-rose-700">$1,894 Total Exposure</div>
+            <p className="text-rose-800/90 leading-relaxed">
+              Court bail: $35 × 6.8x = <strong>$238</strong>. Insurance hike (+23%/yr for 36 mos):
+              $2,400 × 23% × 3 yrs = <strong>$1,656</strong>. Total if paid = <strong>$1,894</strong>.
+            </p>
+          </div>
+          <div className="p-4 rounded-xl bg-amber-50 border border-amber-200 space-y-1">
+            <div className="font-bold text-amber-900">2. Traffic School Fallback (CVC § 42005)</div>
+            <div className="text-lg font-extrabold text-amber-800">$423 Total Cost</div>
+            <p className="text-amber-900/90 leading-relaxed">
+              $238 court bail + $65 school fee + $120 time cost = <strong>$423</strong> (masks 1 NOTS
+              point, saving <strong>$1,471</strong> vs. paying outright).
+            </p>
+          </div>
+          <div className="p-4 rounded-xl bg-[#0f2747] text-white border border-slate-800 space-y-1">
+            <div className="font-bold text-[#c8a24a]">3. Written Declaration EV (45% Win)</div>
+            <div className="text-lg font-extrabold text-white">$233 Expected Cost</div>
+            <p className="text-slate-300 leading-relaxed">
+              EV = (1 − 0.45) × $423 = <strong>$233</strong> (45% chance of $0; 55% fallback to traffic
+              school). Net expected savings: <strong>$1,661</strong>.
+            </p>
+          </div>
+        </div>
+      </section>
 
       <section className="bg-white border border-slate-200 rounded-2xl p-6 space-y-4 no-print">
         <h2 className="text-lg font-bold text-[#0f2747]">Frequently Asked Questions</h2>

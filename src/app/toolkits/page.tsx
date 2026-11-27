@@ -466,6 +466,36 @@ export default function ToolkitsPage() {
           ))}
         </div>
       </section>
+
+      {/* Non-Attorney / Educational Disclaimer & Governance */}
+      <section className="bg-slate-50 border border-slate-200 rounded-2xl p-6 space-y-3 text-xs text-slate-600">
+        <div className="font-bold text-[#0f2747] uppercase tracking-wider text-[11px]">
+          Non-Attorney / Educational Disclaimer &amp; Editorial Governance
+        </div>
+        <p className="leading-relaxed">
+          TicketFig.com is not a law firm, does not provide legal representation, and creates no
+          attorney-client relationship. All written declaration templates, discovery motions, and
+          3-year insurance spreadsheets are provided strictly for educational and self-help
+          actuarial reference. Verify local court rules and statutory deadlines before filing.
+        </p>
+        <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 font-semibold text-[#0f2747]">
+          <Link href="/methodology/" className="hover:underline">
+            Actuarial Methodology →
+          </Link>
+          <Link href="/editorial-policy/" className="hover:underline">
+            Editorial Policy →
+          </Link>
+          <Link href="/changelog/" className="hover:underline">
+            2026 Statutory Changelog →
+          </Link>
+          <Link href="/about/" className="hover:underline">
+            About TicketFig →
+          </Link>
+          <Link href="/disclaimer/" className="hover:underline">
+            Full Legal Disclaimer →
+          </Link>
+        </div>
+      </section>
     </div>
   );
 }

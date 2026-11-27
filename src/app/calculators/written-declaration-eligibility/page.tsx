@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import WrittenDeclarationGenerator from "@/components/calculators/WrittenDeclarationGenerator";
+import StatutoryAuditStamp from "@/components/StatutoryAuditStamp";
 import { JsonLd, webApplicationJsonLd, breadcrumbJsonLd, faqJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
@@ -55,6 +56,7 @@ export default function WrittenDeclarationEligibilityPage() {
           Verify whether your jurisdiction supports mail-in Trial by Written Declaration (e.g.,
           California CVC § 40902) and generate a customized Radar/LiDAR discovery brief.
         </p>
+        <StatutoryAuditStamp />
       </div>
 
       <WrittenDeclarationGenerator />

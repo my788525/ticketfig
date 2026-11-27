@@ -132,10 +132,22 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-slate-800/80 py-5 px-4 text-center text-[11px] text-slate-400">
-        <p>
-          © 2026 TicketFig.com · Educational &amp; Actuarial Reference Only — Not Formal Legal Advice.
-          All calculations execute 100% locally in your browser.
+      <div className="border-t border-slate-800/80 py-5 px-4 text-center text-[11px] text-slate-400 space-y-1.5">
+        <p className="max-w-4xl mx-auto">
+          <strong className="text-slate-200">Non-Attorney / Educational Disclaimer:</strong> TicketFig.com is not a law firm, does not provide legal advice or attorney-client representation, and all calculations execute 100% locally in your browser.
+        </p>
+        <p className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-slate-400">
+          <span>© 2026 TicketFig.com</span>
+          <span>·</span>
+          <Link href="/methodology/" className="hover:text-[#c8a24a] underline underline-offset-2">Methodology</Link>
+          <span>·</span>
+          <Link href="/editorial-policy/" className="hover:text-[#c8a24a] underline underline-offset-2">Editorial Policy</Link>
+          <span>·</span>
+          <Link href="/changelog/" className="hover:text-[#c8a24a] underline underline-offset-2">Changelog</Link>
+          <span>·</span>
+          <Link href="/about/" className="hover:text-[#c8a24a] underline underline-offset-2">About</Link>
+          <span>·</span>
+          <Link href="/disclaimer/" className="hover:text-[#c8a24a] underline underline-offset-2">Disclaimer</Link>
         </p>
       </div>
     </footer>

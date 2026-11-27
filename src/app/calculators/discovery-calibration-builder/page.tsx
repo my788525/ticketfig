@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import DiscoveryCalibrationBuilder from "@/components/calculators/DiscoveryCalibrationBuilder";
+import StatutoryAuditStamp from "@/components/StatutoryAuditStamp";
 import { JsonLd, webApplicationJsonLd, breadcrumbJsonLd, faqJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
@@ -61,6 +62,7 @@ export default function DiscoveryCalibrationBuilderPage() {
           Build a customized 5-point Pre-Trial Informal Discovery Checklist and Formal Discovery
           Request tailored to your state, court, citation number, speed device, and issuing agency.
         </p>
+        <StatutoryAuditStamp />
       </div>
 
       <DiscoveryCalibrationBuilder />

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import LicensePointsCalculator from "@/components/calculators/LicensePointsCalculator";
+import StatutoryAuditStamp from "@/components/StatutoryAuditStamp";
 import { JsonLd, webApplicationJsonLd, breadcrumbJsonLd, faqJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
@@ -55,6 +56,7 @@ export default function LicensePointsCalculatorPage() {
           Audit your active DMV points against state suspension thresholds and statutory surcharge
           cliffs (NY 6-pt DRA, NJ 6-pt MVC Surcharge, CA NOTS, and NC SDIP).
         </p>
+        <StatutoryAuditStamp />
       </div>
 
       <LicensePointsCalculator />

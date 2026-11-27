@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import TicketErrorForensics from "@/components/calculators/TicketErrorForensics";
+import StatutoryAuditStamp from "@/components/StatutoryAuditStamp";
 import { JsonLd, webApplicationJsonLd, breadcrumbJsonLd, faqJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
@@ -62,6 +63,7 @@ export default function TicketErrorForensicsPage() {
           Engineering &amp; Traffic Surveys, Radar/LiDAR occlusion, and facial citation defects to
           generate a printable Courtroom / Written Declaration Defense Outline.
         </p>
+        <StatutoryAuditStamp />
       </div>
 
       <TicketErrorForensics />

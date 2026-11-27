@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import SpeedCameraAuditCalc from "@/components/calculators/SpeedCameraAuditCalc";
 import ToolPaywallDossier from "@/components/ToolPaywallDossier";
+import StatutoryAuditStamp from "@/components/StatutoryAuditStamp";
 import { JsonLd, breadcrumbJsonLd, faqJsonLd, webApplicationJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
@@ -56,6 +57,7 @@ export default function SpeedCamera2027Page() {
         <p className="text-slate-600 max-w-3xl text-sm sm:text-base">
           Verify whether your 2027 citation is a zero-point civil speed-camera notice or a point-bearing moving violation that triggers a 3-year auto insurance surcharge.
         </p>
+        <StatutoryAuditStamp />
       </div>
 
       <SpeedCameraAuditCalc />
