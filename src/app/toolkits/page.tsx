@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { JsonLd, breadcrumbJsonLd, faqJsonLd } from "@/components/JsonLd";
+import ToolkitsHeroClient from "./ToolkitsHeroClient";
 
 const CHECKOUT_URL =
   "https://checkout.dodopayments.com/buy/pdt_0NsmklI8rw00LaBQM8xhq?src=toolkits_hub";
@@ -162,6 +163,9 @@ export default function ToolkitsPage() {
           {/* Left: Product Copy & Value Proposition */}
           <div className="lg:col-span-7 space-y-5">
             <div className="flex flex-wrap items-center gap-2">
+              <span className="px-3 py-1 rounded-full text-xs font-extrabold uppercase tracking-wider bg-[#c8a24a] text-slate-950">
+                ★ MOST POPULAR · 90%+ CHOOSE THIS
+              </span>
               <span className="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[#c8a24a]/20 text-[#c8a24a] border border-[#c8a24a]/40">
                 Official 2026 VIP Toolkit Store
               </span>
@@ -212,39 +216,8 @@ export default function ToolkitsPage() {
               </div>
             </div>
 
-            {/* Primary & Secondary CTAs */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2">
-              <a
-                href={CHECKOUT_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 bg-[#c8a24a] hover:bg-amber-400 text-slate-950 font-extrabold px-7 py-4 rounded-xl text-sm sm:text-base transition shadow-lg shadow-amber-500/20"
-              >
-                <span>Instant Buy VIP Suite — $24.99</span>
-                <span aria-hidden="true">→</span>
-              </a>
-
-              <Link
-                href="/wizard/"
-                className="inline-flex items-center justify-center px-5 py-4 rounded-xl bg-slate-800/90 hover:bg-slate-700 text-white border border-slate-700 text-xs sm:text-sm font-bold transition"
-              >
-                Run Free Defense Wizard First
-              </Link>
-            </div>
-
-            <div className="text-xs text-slate-400 flex flex-wrap items-center gap-x-4 gap-y-1">
-              <span>✓ Instant .DOCX + .XLSX delivery</span>
-              <span>✓ 30-Day Money-Back Guarantee</span>
-              <span>
-                ✓ Or check{" "}
-                <Link
-                  href="/calculators/speeding-ticket-insurance-cost/"
-                  className="text-[#c8a24a] hover:underline font-semibold"
-                >
-                  3-Year Insurance Cost Calculator
-                </Link>
-              </span>
-            </div>
+            {/* Interactive State Confirm + Primary CTA + Sample Preview + Zero-Risk Badges */}
+            <ToolkitsHeroClient checkoutUrl={CHECKOUT_URL} />
           </div>
 
           {/* Right: E-Commerce SKU Manifest Card */}
@@ -315,6 +288,32 @@ export default function ToolkitsPage() {
               </a>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Mid-Page Reverse Calculator Rescue Banner */}
+      <section className="rounded-2xl border border-amber-200 bg-amber-50/90 p-5 sm:p-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+        <div className="space-y-1">
+          <div className="text-xs font-extrabold uppercase tracking-wider text-amber-800">
+            Not Sure Yet? Calculate Your Exact 3-Year Savings First
+          </div>
+          <p className="text-sm font-semibold text-slate-800">
+            Not sure if fighting the ticket saves more than traffic school over 3 years? Run the 30-second free calculator first →
+          </p>
+        </div>
+        <div className="flex flex-wrap items-center gap-2.5 shrink-0">
+          <Link
+            href="/calculators/speeding-ticket-insurance-cost/"
+            className="px-4 py-2.5 rounded-xl bg-[#0f2747] hover:bg-slate-800 text-white text-xs font-extrabold transition"
+          >
+            3-Year Insurance Calculator →
+          </Link>
+          <Link
+            href="/wizard/"
+            className="px-4 py-2.5 rounded-xl bg-white hover:bg-slate-100 text-[#0f2747] border border-slate-300 text-xs font-extrabold transition"
+          >
+            Free Defense Wizard →
+          </Link>
         </div>
       </section>
 
